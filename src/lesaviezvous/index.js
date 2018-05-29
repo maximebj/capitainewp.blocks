@@ -1,18 +1,21 @@
 import "./style.scss"
 import "./editor.scss"
 
+import emoji from './emoji.js'
+
 const { registerBlockType } = wp.blocks
 const { RichText } = wp.editor
 
 export default registerBlockType(
-  'captainwp/fact',
+  'captainwp/lesaviezvous',
   {
     title: 'Le saviez-vous ?',
     description: 'Pour afficher une information factuelle',
     category: 'common',
     icon: 'smiley',
     keywords: [
-      'fait'
+      'fait',
+      'lesaviezvous'
     ],
     attributes: {
       content: {
@@ -23,35 +26,35 @@ export default registerBlockType(
     },
     edit: props => {
 
-      const onChangeContent = value => {
-        props.setAttributes( { content: value } )
-      }
+      const { attributes: { content }, setAttributes } = props
 
       return (
         <div className="fact">
-          <img className="fact__picture" src={ capitaineGlobals.theme_url+"/img/emoji.svg" } alt="Le saviez-vous ?" />
+          <div className="fact__picture">{ emoji }</div>
           <div className="fact__content">
             <p className="fact__title">Le saviez-vous ?</p>
             <RichText
               tagName="div"
               multiline="p"
               placeholder="Que doit-on savoir ?"
-              value={ props.attributes.content }
+              value={ content }
               className='fact__desc'
-              onChange={ onChangeContent }
-              focus = { props.focus }
+              onChange={ content => setAttributes( { content } ) }
     				/>
           </div>
         </div>
       )
     },
     save: props => {
+
+      const { content } = props.attributes
+
       return (
         <div className="fact">
-          <img className="fact__picture" src={ capitaineGlobals.theme_url+"/img/emoji.svg" } alt="Le saviez-vous ?" />
+          <div className="fact__picture">{ emoji }</div>
           <div className="fact__content">
             <p className="fact__title">Le saviez-vous ?</p>
-            <div className="fact__desc">{ props.attributes.content }</div>
+            <div className="fact__desc">{ content }</div>
           </div>
         </div>
       )

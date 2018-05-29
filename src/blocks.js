@@ -1,5 +1,5 @@
 import './aparte'
+import './lesaviezvous'
 import './button'
 import './definition'
-import './fact'
 import './interview'

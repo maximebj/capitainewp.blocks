@@ -11,75 +11,60 @@
  *
  */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-function capitainewp_blocks_assets() {
-
-	wp_enqueue_style(
-		'capitainewp-blocs',
-		plugins_url( 'dist/blocks.style.build.css', __FILE__ ),
-		[ 'wp-editor', 'wp-blocks' ]
-	);
-}
-add_action( 'enqueue_block_assets', 'capitainewp_blocks_assets' );
-
-
-function capitainewp_blocks_editor_assets() {
-
-	wp_enqueue_script(
-		'capitainewp-blocs',
-		plugins_url( '/dist/blocks.build.js', __FILE__ ),
-	  [ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ]
-	);
-
-	wp_enqueue_style(
-		'capitainewp-blocs-editor',
-		plugins_url( 'dist/blocks.editor.build.css', __FILE__ ),
-		[ 'wp-edit-blocks' ]
-	);
-}
-add_action( 'enqueue_block_editor_assets', 'capitainewp_blocks_editor_assets' );
-
-
-
-
-
-
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
 class CapitaineWPBlocks {
 
 	public function register_hooks() {
     add_action( 'init', [ $this, 'register_render'] );
+    add_action( 'admin_enqueue_scripts', [ $this, 'register_admin_assets' ] );
     add_action( 'enqueue_block_editor_assets', [ $this, 'register_editor_assets' ] );
-    //add_action( 'enqueue_block_assets', [ $this, 'register_public_assets' ] );
+    add_action( 'enqueue_block_assets', [ $this, 'register_public_assets' ] );
   }
 
   public function register_editor_assets() {
 
+    $js = 'dist/blocks.build.js';
+
   	wp_enqueue_script(
   		'capitainewp-blocs',
-  		plugins_url( '/dist/blocks.build.js', __FILE__ ),
-  	  [ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ]
+  		plugins_url( $js, __FILE__ ),
+  	  [ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
+      filemtime( plugin_dir_path( __FILE__ ) . $js )
   	);
+
+    $css = 'dist/blocks.editor.build.css';
 
   	wp_enqueue_style(
   		'capitainewp-blocs-editor',
-  		plugins_url( 'dist/blocks.editor.build.css', __FILE__ ),
-  		[ 'wp-edit-blocks' ]
+  		plugins_url( $css , __FILE__ ),
+  		[ 'wp-edit-blocks' ],
+      filemtime( plugin_dir_path( __FILE__ ) . $css )
+  	);
+  }
+
+  public function register_admin_assets() {
+
+    $css = 'dist/editor.style.build.css';
+
+  	wp_enqueue_style(
+  		'capitainewp-admin',
+  		plugins_url( $css , __FILE__ ),
+  		[ 'wp-edit-post' ],
+      filemtime( plugin_dir_path( __FILE__ ) . $css )
   	);
   }
 
   public function register_public_assets() {
 
+    $css = 'dist/blocks.style.build.css';
+
     wp_enqueue_style(
       'capitainwp-blocks',
-      plugins_url( '/dist/blocks.css', __FILE__ ),
-      array('wp-blocks'),
-      '1.0'
+      plugins_url( $css , __FILE__ ),
+      array('wp-blocks'), // TODO
+      filemtime( plugin_dir_path( __FILE__ ) . $css )
     );
   }
 
@@ -101,8 +86,6 @@ class CapitaineWPBlocks {
     return \Timber::compile('blocks/definition.twig', $context);
   }
 }
-
-
 
 $CapitaineWPBlocks = new CapitaineWPBlocks();
 $CapitaineWPBlocks->register_hooks();

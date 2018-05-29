@@ -1,0 +1,15 @@
+.editor-post-title .editor-post-title__input {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.edit-post-visual-editor p {
+  font-family: 'Rubik', sans-serif;
+}
+
+body.gutenberg-editor-page .editor-post-title,
+body.gutenberg-editor-page .editor-default-block-appender,
+body.gutenberg-editor-page .editor-block-list__block {
+  max-width: 784px; /* 756px + 28?  */
+}
