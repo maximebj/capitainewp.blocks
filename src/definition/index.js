@@ -1,3 +1,6 @@
+import "./style.scss"
+import "./editor.scss"
+
 import Inspector from './inspect'
 import Preview from './preview'
 

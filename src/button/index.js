@@ -1,3 +1,6 @@
+import "./style.scss"
+import "./editor.scss"
+
 import classnames from 'classnames'
 import Inspector from './inspect'
 

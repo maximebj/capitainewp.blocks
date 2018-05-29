@@ -1,19 +1,8 @@
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
-.wp-block-cgb-block-capitainewp {
-  background: #bada55;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+.edit-post-visual-editor .aparte__title {
+  font-size: 1.2em;
+  margin-top: 0; }
+
+.edit-post-visual-editor .aparte__content p {
+  margin: 1.5em 0; }
+  .edit-post-visual-editor .aparte__content p:last-child {
+    margin-bottom: 0; }

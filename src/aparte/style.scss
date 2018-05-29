@@ -1,0 +1,26 @@
+.aparte {
+  background: $color-1;
+  padding: $pad-s;
+  border-radius: $radius;
+  margin: 2em 0;
+}
+
+.aparte__title {
+  font-size: 1.2em;
+  font-family: $title-font;
+  color: white;
+}
+
+.aparte__content a {
+  color: white;
+  text-decoration: underline;
+}
+
+.aparte__content p {
+  color: white;
+  margin: 1.5em 0;
+}
+
+.aparte__content p:last-child {
+  margin-bottom: 0;
+}

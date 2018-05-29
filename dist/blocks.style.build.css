@@ -1,18 +1,21 @@
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.wp-block-cgb-block-capitainewp {
-  background: orangered;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+.aparte {
+  background: #48ADD8;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 2em 0; }
+
+.aparte__title {
+  font-size: 1.2em;
+  font-family: "Poppins", sans-serif;
+  color: white; }
+
+.aparte__content a {
+  color: white;
+  text-decoration: underline; }
+
+.aparte__content p {
+  color: white;
+  margin: 1.5em 0; }
+
+.aparte__content p:last-child {
+  margin-bottom: 0; }

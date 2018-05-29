@@ -1,3 +1,6 @@
+import "./style.scss"
+import "./editor.scss"
+
 const { registerBlockType } = wp.blocks
 const { RichText } = wp.editor
 

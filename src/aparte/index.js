@@ -1,3 +1,6 @@
+import "./style.scss"
+import "./editor.scss"
+
 const { registerBlockType } = wp.blocks
 const { RichText } = wp.editor
 
@@ -7,13 +10,14 @@ export default registerBlockType(
     title: 'Aparté',
     description: 'Un bloc bleu pour une belle aparté',
     category: 'common',
-    icon: 'format-status',
+    icon: 'slides',
     keywords: [],
     attributes: {
       title: {
         type: 'array',
         source: 'children',
         selector: '.aparte__title',
+        default: 'Aparté: ',
       },
       content: {
         type: 'array',
@@ -23,41 +27,38 @@ export default registerBlockType(
     },
     edit: props => {
 
-      const onChangeContent = value => {
-        props.setAttributes( { content: value } )
-      }
-      const onChangeTitle = value => {
-        props.setAttributes( { title: value } )
-      }
+      const { attributes: { title, content }, setAttributes} = props
 
       return (
         <div className='aparte'>
           <RichText
             tagName="p"
-            value={ props.attributes.title || 'Aparté : ' }
+            value={ title }
             className='aparte__title'
-            onChange={ onChangeTitle }
+            onChange={ title => setAttributes( { title } ) }
   				/>
 
           <RichText
             tagName="div"
             multiline="p"
             placeholder="Contenu de l'apparté"
-            value={ props.attributes.content }
+            value={ content }
             className='aparte__content'
-            onChange={ onChangeContent }
-            focus = { props.focus }
+            onChange={ content => setAttributes( { content } ) }
   				/>
         </div>
       )
     },
     save: props => {
+
+      const { title, content } = props.attributes
+
       return (
         <div className="aparte">
-          <p className="aparte__title">{ props.attributes.title }</p>
-          <div className="aparte__content">{ props.attributes.content }</div>
+          <p className="aparte__title">{ title }</p>
+          <div className="aparte__content">{ content }</div>
         </div>
       )
-    },
-  },
+    }
+  }
 )
