@@ -8,6 +8,8 @@
     "eject": "cgb-scripts eject"
   },
   "dependencies": {
-    "cgb-scripts": "1.9.6"
+    "cgb-scripts": "^1.9.7",
+    "classnames": "^2.2.5",
+    "throttle-debounce": "^1.0.1"
   }
 }
