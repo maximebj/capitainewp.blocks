@@ -8,7 +8,6 @@
  * Version: 1.0.0
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- *
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -18,7 +17,6 @@ class CapitaineWPBlocks {
 
 	public function register_hooks() {
     add_action( 'init', [ $this, 'register_render'] );
-    add_action( 'admin_enqueue_scripts', [ $this, 'register_admin_assets' ] );
     add_action( 'enqueue_block_editor_assets', [ $this, 'register_editor_assets' ] );
     add_action( 'enqueue_block_assets', [ $this, 'register_public_assets' ] );
   }
@@ -42,12 +40,16 @@ class CapitaineWPBlocks {
   		[ 'wp-edit-blocks' ],
       filemtime( plugin_dir_path( __FILE__ ) . $css )
   	);
-  }
-
-  public function register_admin_assets() {
 
     $css = 'dist/editor.style.build.css';
 
+    // Load fonts used in front
+    wp_enqueue_style(
+  		'capitainewp-google-font',
+  		'https://fonts.googleapis.com/css?family=Rubik:400,600|Poppins:600'
+  	);
+
+    // Editor overide (width, fonts...)
   	wp_enqueue_style(
   		'capitainewp-admin',
   		plugins_url( $css , __FILE__ ),
@@ -56,6 +58,7 @@ class CapitaineWPBlocks {
   	);
   }
 
+
   public function register_public_assets() {
 
     $css = 'dist/blocks.style.build.css';
@@ -63,7 +66,7 @@ class CapitaineWPBlocks {
     wp_enqueue_style(
       'capitainwp-blocks',
       plugins_url( $css , __FILE__ ),
-      array('wp-blocks'), // TODO
+      [],
       filemtime( plugin_dir_path( __FILE__ ) . $css )
     );
   }
@@ -83,6 +86,7 @@ class CapitaineWPBlocks {
 
     $context['definition'] = \Timber::get_post($id);
 
+    // TODO TEST
     return \Timber::compile('blocks/definition.twig', $context);
   }
 }
