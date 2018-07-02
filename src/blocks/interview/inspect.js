@@ -18,7 +18,7 @@ export default class Inspector extends Component {
 
   render() {
     return (
-      <InspectorControls key="inspector">
+      <InspectorControls>
 
         <PanelBody title="Choix de la définition">
 

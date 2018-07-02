@@ -10,7 +10,7 @@ export default registerBlockType(
     title: 'Aparté',
     description: 'Un bloc bleu pour une belle aparté',
     category: 'common',
-    icon: 'slides',
+    icon: { background: '#48ADD8', foreground: "#fff", src: 'slides' },
     keywords: [],
     attributes: {
       title: {

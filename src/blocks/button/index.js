@@ -10,10 +10,10 @@ const { RichText } = wp.editor;
 export default registerBlockType(
   'captainwp/button',
   {
-    title: 'Bouton',
+    title: '+ Bouton',
     description: 'Bouton amélioré spécial Capitaine',
     category: 'common',
-    icon: 'external',
+    icon: { background: '#48ADD8', foreground: "#fff", src: 'external' },
     keywords: [
       'button',
     ],

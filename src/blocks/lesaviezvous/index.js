@@ -12,7 +12,7 @@ export default registerBlockType(
     title: 'Le saviez-vous ?',
     description: 'Pour afficher une information factuelle',
     category: 'common',
-    icon: 'smiley',
+    icon: { background: '#48ADD8', foreground: "#fff", src: 'smiley' },
     keywords: [
       'fait',
       'lesaviezvous'

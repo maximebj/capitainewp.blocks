@@ -12,36 +12,32 @@ export default registerBlockType(
     title: 'Interview',
     description: "Afficher une Interview d'un membre de la communauté WordPress",
     category: 'common',
-    icon: 'groups',
-    keywords: [
-      'plugin',
-    ],
+    icon: { background: '#48ADD8', foreground: "#fff", src: 'groups' },
+    keywords: [ 'plugin' ],
     attributes: {
       pluginSlug: {
         type: 'string',
       },
     },
-    edit: ({ setAttributes, focus, attributes }) => {
+    edit: ( props ) => {
 
       const onChangeSlug = event => {
         setAttributes( { pluginSlug: event.target.getAttribute('data-slug') } )
       };
 
-      return [
-        !! focus && (
+      return (
+
           <Inspector onChangeSlug={onChangeSlug} pluginSlug={attributes.pluginSlug} />
-        )
-				,
-        !! attributes.pluginSlug ? (
+
+        { attributes.pluginSlug ? (
           <Preview pluginSlug={attributes.pluginSlug} />
         ) : (
-          <p class="captain-choose">Recherchez une extension dans l'inspecteur</p>
-        )
-      ]
+          <p class="captain-message">Recherchez une extension dans l'inspecteur</p>
+        ) }
+      )
     },
     save: props => {
-      // Rendered via PHP
       return null
-    },
-  },
+    }
+  }
 )

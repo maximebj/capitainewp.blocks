@@ -74,8 +74,13 @@ class CapitaineWPBlocks {
   public function register_render() {
 
     register_block_type(
-      'captainewp/definition',
+      'captainwp/definition',
       [ 'render_callback' => [ $this, 'render_definition_block' ] ]
+    );
+
+    register_block_type(
+      'captainwp/interview',
+      [ 'render_callback' => [ $this, 'render_interview_block' ] ]
     );
   }
 
@@ -83,11 +88,18 @@ class CapitaineWPBlocks {
     global $context;
 
     $id = $attributes['definitionID'];
-
     $context['definition'] = \Timber::get_post($id);
 
-    // TODO TEST
-    return \Timber::compile('blocks/definition.twig', $context);
+    return \Timber::compile( 'blocks/definition.twig', $context );
+  }
+
+  public function render_interview_block( $attributes ) {
+    global $context;
+
+    // $id = $attributes['definitionID'];
+    // $context['definition'] = \Timber::get_post($id);
+
+    return \Timber::compile( 'blocks/interview.twig', $context );
   }
 }
 
