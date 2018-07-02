@@ -14,9 +14,7 @@ export default registerBlockType(
     description: 'Afficher une définition',
     category: 'common',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'book-alt' },
-    keywords: [
-      'definition',
-    ],
+    keywords: [ 'definition' ],
     attributes: {
       definitionID: {
         type: 'string',
@@ -30,6 +28,7 @@ export default registerBlockType(
       return (
         <Fragment>
           <Inspector { ...{ attributes, setAttributes } } />
+
           { definitionID ? (
             <Preview { ...{ attributes } } />
           ) : (

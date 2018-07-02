@@ -58,7 +58,6 @@ class CapitaineWPBlocks {
   	);
   }
 
-
   public function register_public_assets() {
 
     $css = 'dist/blocks.style.build.css';
@@ -96,8 +95,15 @@ class CapitaineWPBlocks {
   public function render_interview_block( $attributes ) {
     global $context;
 
-    // $id = $attributes['definitionID'];
-    // $context['definition'] = \Timber::get_post($id);
+    $id = $attributes['peopleID'];
+    $context['people'] = \Timber::get_post($id);
+    $context['content'] = $attributes['content'];
+
+    // define article
+    $vowels = array("a", "e", "i", "o", "u", "y");
+    $first_letter = strtolower( substr( $context['people']->post_title, 0, 1 ) );
+
+    $context['article'] = in_array( $first_letter, $vowels ) ? "d'" : "de ";
 
     return \Timber::compile( 'blocks/interview.twig', $context );
   }

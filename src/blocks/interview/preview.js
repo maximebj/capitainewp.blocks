@@ -1,60 +1,111 @@
-const { Component } = wp.element;
+const { Component } = wp.element
+const { RichText } = wp.editor
 
 export default class Preview extends Component {
 
   state = {
-    definition: false
+    people: false,
+    picture: false
   }
 
-  getPost(id) {
-    const api = new wp.api.models.Definitions({ id: id })
+  getPost = () => {
 
-    api.fetch()
-    .then( result => {
-      console.log(result)
-      this.setState( { definition: result } )
-    })
+    const { peopleID } = this.props.attributes
+
+    const postQuery = new wp.api.models.People( { id: peopleID } )
+
+    postQuery.fetch().then( result => {
+
+      this.setState( { people: result } )
+
+      // Get picture
+      const pictureQuery = new wp.api.models.Media( { id: result.meta.photo } )
+
+      pictureQuery.fetch().then( result => {
+        this.setState( { picture: result.media_details.sizes.thumbnail.source_url } )
+      })
+    } )
+  }
+
+  isFirstLetterVowel = name => {
+    return ['a', 'e', 'i', 'o', 'u', 'y'].indexOf(name[0].toLowerCase()) !== -1 ? "d'" : "de "
   }
 
   componentWillMount() {
-    this.getPost(this.props.definitionID)
+    this.getPost()
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if( nextProps.definitionID != this.props.definitionID ) {
-      this.getPost( nextProps.definitionID )
+    if( nextProps.peopleID != this.props.peopleID ) {
+      this.getPost()
     }
   }
 
   render() {
 
-    const { definition } = this.state
+    const { attributes: { content }, setAttributes } = this.props
+    const { people, picture } = this.state
 
     return (
-      definition ? (
-        <div className="definition">
-          <header className="definition__header">
-            { definition.acf.lesson != "" &&
-            <a href="{definition.acf.lesson}" target="_blank" className="definition__button editor-button button--main">Cours dédié</a>
+      people ? (
+        <div className="interview">
+
+          { picture &&
+            <div className="interview__picture">
+              <img src={picture} alt={people.title.rendered} />
+            </div>
+          }
+
+          <div className="interview__awards">
+            { people.meta.skill1 &&
+              <div className="interview__award interview__award--left">
+                <span className="dashicons dashicons-tickets"></span> {people.meta.skill1}
+              </div>
             }
-            <div className="definition__icon"><span className="dashicons dashicons-book-alt"></span></div>
-            <p className="definition__title">{definition.title.rendered}</p>
-            <p className="definition__type">Définition</p>
-          </header>
-          <div className="definition__content">
-            <div className="definition__desc">{definition.acf.description}</div>
+
+            { people.meta.skill2 &&
+              <div className="interview__award interview__award--right">
+                <span className="dashicons dashicons-awards"></span> {people.meta.skill2}
+              </div>
+            }
           </div>
-          <div className="definition__meta">
-            { definition.acf.translation != "" &&
-              <p>Traduction : <strong>{definition.acf.translation}</strong></p>
+
+          <p className="interview__title">
+            Le conseil {' '}
+            {this.isFirstLetterVowel(people.title.rendered)}
+            <span>{people.title.rendered}</span>
+          </p>
+
+          { people.meta.work != "" &&
+            <p className="interview__work">{people.meta.work}</p>
+          }
+
+          <RichText
+            tagName="div"
+            multiline="p"
+            className='interview__desc'
+            value={ content }
+            onChange={ content => setAttributes( { content } ) }
+            placeholder="Écrivez le contenu du conseil ici !"
+            format="string"
+  				/>
+
+          <div className="interview__meta">
+            { people.meta.twitter != "" &&
+              <span>
+                Suivez-moi sur Twitter : <a href="https://twitter.com/{people.meta.twitter}" target="_blank">@{people.meta.twitter}</a>
+              </span>
             }
-            { definition.acf.abbreviation != "" &&
-              <p>Abréviation : <strong>{definition.acf.abbreviation}</strong></p>
+            { people.meta.website != "" &&
+              <span>
+                {' '} • Mon site : <a href="{people.meta.website}" target="_blank">{people.meta.website_name}</a>
+              </span>
             }
           </div>
+
         </div>
       ) : (
-        <p class="captain-message">Chargement de la définition...</p>
+        <p className="captain-message">Chargement de la personne...</p>
       )
     )
   }

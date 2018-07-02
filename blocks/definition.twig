@@ -1,7 +1,7 @@
 <div class="definition">
   <header class="definition__header">
     {% if definition.lesson %}
-    <a href="{{definition.get_field('lesson')}}" target="_blank" class="definition__button button button--main">Cours dédié</a>
+    <a href="{{definition.lesson}}" target="_blank" class="definition__button button button--main">Cours dédié</a>
     {% endif %}
     <div class="definition__icon"><span class="dashicons dashicons-book-alt"></span></div>
     <p class="definition__title">{{definition.post_title}}</p>

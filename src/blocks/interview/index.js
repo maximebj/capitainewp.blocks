@@ -5,6 +5,7 @@ import Inspector from './inspect'
 import Preview from './preview'
 
 const { registerBlockType } = wp.blocks
+const { Fragment } = wp.element
 
 export default registerBlockType(
   'captainwp/interview',
@@ -15,25 +16,28 @@ export default registerBlockType(
     icon: { background: '#48ADD8', foreground: "#fff", src: 'groups' },
     keywords: [ 'plugin' ],
     attributes: {
-      pluginSlug: {
+      peopleID: {
         type: 'string',
       },
+      content: {
+        type: 'string',
+      }
     },
     edit: ( props ) => {
 
-      const onChangeSlug = event => {
-        setAttributes( { pluginSlug: event.target.getAttribute('data-slug') } )
-      };
+      const { attributes, setAttributes } = props
+      const { peopleID } = attributes
 
       return (
+        <Fragment>
+          <Inspector { ...{ attributes, setAttributes } } />
 
-          <Inspector onChangeSlug={onChangeSlug} pluginSlug={attributes.pluginSlug} />
-
-        { attributes.pluginSlug ? (
-          <Preview pluginSlug={attributes.pluginSlug} />
-        ) : (
-          <p class="captain-message">Recherchez une extension dans l'inspecteur</p>
-        ) }
+          { peopleID ? (
+            <Preview { ...{ attributes, setAttributes } } />
+          ) : (
+            <p class="captain-message">Recherchez une personne dans l'inspecteur</p>
+          ) }
+        </Fragment>
       )
     },
     save: props => {

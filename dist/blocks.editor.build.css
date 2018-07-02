@@ -135,7 +135,7 @@
   width: 32px;
   height: 32px; }
 
-.edit-post-visual-editor p {
+.edit-post-visual-editor .defintion p {
   margin: 0; }
 
 .edit-post-visual-editor .definition__title {
@@ -158,3 +158,44 @@
 
 .edit-post-visual-editor .definition__meta p {
   font-size: 1em; }
+.captain-message {
+  text-align: center;
+  font-style: italic;
+  color: #ccc; }
+
+.captain-results p {
+  margin: 10px 0;
+  text-align: center; }
+
+.captain-results ul {
+  margin-top: 10px;
+  list-style-type: none;
+  border: 1px solid #E3E4E7; }
+
+.captain-results li {
+  overflow: auto;
+  margin: 0;
+  padding: 10px; }
+  .captain-results li:not(:first-child) {
+    border-top: 1px solid #E3E4E7; }
+  .captain-results li:hover {
+    background: #efefef;
+    cursor: pointer; }
+
+.captain-results img {
+  display: inline-block;
+  float: left;
+  margin-right: 4px;
+  width: 32px;
+  height: 32px; }
+
+.edit-post-visual-editor .interview__title {
+  font-size: 21.6px; }
+
+.edit-post-visual-editor .interview__title,
+.edit-post-visual-editor .interview__work {
+  margin: 0; }
+
+.edit-post-visual-editor .interview__meta,
+.edit-post-visual-editor .interview__award {
+  font-family: 'Rubik', sans-serif; }

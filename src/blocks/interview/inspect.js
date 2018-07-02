@@ -1,33 +1,28 @@
-import SearchPosts from './searchposts'
+import SearchPost from '../../components/searchpost'
 
-const { Component } = wp.element;
-
-const {
-  InspectorControls,
-} = wp.blocks;
-
-const {
-  PanelBody,
-} = wp.components;
+const { Component } = wp.element
+const { InspectorControls } = wp.editor
+const { PanelBody } = wp.components
 
 export default class Inspector extends Component {
 
-  constructor( props ) {
-    super( ...arguments )
-  }
-
   render() {
+
+    const { attributes: { peopleID }, setAttributes } = this.props
+
     return (
       <InspectorControls>
 
-        <PanelBody title="Choix de la définition">
+        <PanelBody title="Choix de la personne">
 
-          <SearchPosts onChangeID={this.props.onChangeID} definitionID={this.props.definitionID } />
+          <SearchPost
+						onChange={ peopleID => setAttributes( { peopleID } ) }
+            type="People"
+					/>
 
         </PanelBody>
 
       </InspectorControls>
     );
   }
-
 }

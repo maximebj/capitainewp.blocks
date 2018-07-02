@@ -3,8 +3,7 @@ const { Component } = wp.element
 export default class Preview extends Component {
 
   state = {
-    definition: false,
-    meta: false,
+    definition: false
   }
 
   getPost = () => {
@@ -36,22 +35,22 @@ export default class Preview extends Component {
       definition ? (
         <div className="definition">
           <header className="definition__header">
-            { definition.meta.lesson[0] != "" &&
-              <a href="{definition.meta.lesson[0]}" target="_blank" className="definition__button editor-button button--main">Cours dédié</a>
+            { definition.meta.lesson != "" &&
+              <a href="{definition.meta.lesson}" target="_blank" className="definition__button editor-button button--main">Cours dédié</a>
             }
             <div className="definition__icon"><span className="dashicons dashicons-book-alt"></span></div>
             <p className="definition__title">{definition.title.rendered}</p>
             <p className="definition__type">Définition</p>
           </header>
           <div className="definition__content">
-            <p className="definition__desc">{definition.meta.description[0]}</p>
+            <p className="definition__desc">{definition.meta.description}</p>
           </div>
           <div className="definition__meta">
-            { definition.meta.translation[0] != "" &&
-              <p>Traduction : <strong>{definition.meta.translation[0]}</strong></p>
+            { definition.meta.translation != "" &&
+              <p>Traduction : <strong>{definition.meta.translation}</strong></p>
             }
-            { definition.meta.abbreviation[0] != "" &&
-              <p>Abréviation : <strong>{definition.meta.abbreviation[0]}</strong></p>
+            { definition.meta.abbreviation != "" &&
+              <p>Abréviation : <strong>{definition.meta.abbreviation}</strong></p>
             }
           </div>
         </div>
