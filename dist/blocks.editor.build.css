@@ -199,3 +199,75 @@
 .edit-post-visual-editor .interview__meta,
 .edit-post-visual-editor .interview__award {
   font-family: 'Rubik', sans-serif; }
+.captain-message {
+  text-align: center;
+  font-style: italic;
+  color: #ccc; }
+
+.captain-results p {
+  margin: 10px 0;
+  text-align: center; }
+
+.captain-results ul {
+  margin-top: 10px;
+  list-style-type: none;
+  border: 1px solid #E3E4E7; }
+
+.captain-results li {
+  overflow: auto;
+  margin: 0;
+  padding: 10px; }
+  .captain-results li:not(:first-child) {
+    border-top: 1px solid #E3E4E7; }
+  .captain-results li:hover {
+    background: #efefef;
+    cursor: pointer; }
+
+.captain-results img {
+  display: inline-block;
+  float: left;
+  margin-right: 4px;
+  width: 32px;
+  height: 32px; }
+
+.edit-post-visual-editor .button {
+  display: inline-block;
+  border: none;
+  padding: .6em 1.2em;
+  -webkit-appearance: none;
+  color: #fff;
+  border-radius: 2px;
+  text-decoration: none;
+  background-color: #48add8;
+  line-height: auto;
+  height: auto;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+
+.edit-post-visual-editor .button:hover,
+.edit-post-visual-editor .button:focus {
+  background-color: #48add8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: white; }
+
+.edit-post-visual-editor .button,
+.edit-post-visual-editor .link__meta {
+  font-family: 'Rubik', sans-serif; }
+
+.edit-post-visual-editor .link__meta .editor-rich-text {
+  display: inline-block;
+  min-width: 300px; }
+
+.edit-post-visual-editor .link__title .editor-rich-text {
+  display: inline-block;
+  margin-left: 5px;
+  min-width: 300px; }
+
+.edit-post-visual-editor .link__title {
+  margin: 0;
+  color: #48add8;
+  font-size: 19.8px; }
+
+.edit-post-visual-editor .link__desc {
+  margin-top: 10px; }

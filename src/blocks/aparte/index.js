@@ -14,8 +14,7 @@ export default registerBlockType(
     keywords: [],
     attributes: {
       title: {
-        type: 'array',
-        source: 'children',
+        type: 'string',
         selector: '.aparte__title',
         default: 'Aparté: ',
       },
