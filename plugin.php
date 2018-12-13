@@ -71,6 +71,11 @@ class CapitaineWPBlocks {
   }
 
   public function register_render() {
+    
+    // WP 5 Compatibility
+    if ( ! function_exists('register_block_type') ) {
+      return;
+    }
 
     register_block_type(
       'captainwp/definition',
