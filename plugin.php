@@ -40,22 +40,6 @@ class CapitaineWPBlocks {
   		[ 'wp-edit-blocks' ],
       filemtime( plugin_dir_path( __FILE__ ) . $css )
   	);
-
-    $css = 'dist/editor.style.build.css';
-
-    // Load fonts used in front
-    wp_enqueue_style(
-  		'capitainewp-google-font',
-  		'https://fonts.googleapis.com/css?family=Rubik:400,600|Poppins:600'
-  	);
-
-    // Editor overide (width, fonts...)
-  	wp_enqueue_style(
-  		'capitainewp-admin',
-  		plugins_url( $css , __FILE__ ),
-  		[ 'wp-edit-post' ],
-      filemtime( plugin_dir_path( __FILE__ ) . $css )
-  	);
   }
 
   public function register_public_assets() {
