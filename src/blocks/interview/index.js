@@ -17,7 +17,7 @@ export default registerBlockType(
     keywords: [ 'people' ],
     attributes: {
       peopleID: {
-        type: 'string',
+        type: 'integer',
       },
       content: {
         type: 'string',
@@ -26,7 +26,7 @@ export default registerBlockType(
     edit: ( props ) => {
 
       const { attributes, setAttributes } = props
-      const { peopleID } = attributes
+      const { peopleID, content } = attributes
 
       return (
         <Fragment>

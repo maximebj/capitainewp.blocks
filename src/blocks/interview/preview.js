@@ -11,19 +11,20 @@ export default class Preview extends Component {
 
   getPost = () => {
 
-    const { peopleID, content } = this.props
+    const { peopleID } = this.props
 
     fetch( `/wp-json/wp/v2/peoples/${peopleID}` )
     .then( response => response.json() )
     .then( post => {
-      this.setState( { definition: post } )
+      this.setState( { people: post } )
 
       // Featured Media
-			if ( typeof post.featured_media != "undefined" && post.featured_media != 0 ) {
-				fetch( `/wp-json/wp/v2/media/${post.featured_media}` )
+    
+			if ( typeof post.meta.photo != "" ) {
+				fetch( `/wp-json/wp/v2/media/${post.meta.photo}` )
 				.then( response => response.json() )
 				.then( picture => {
-					this.setState( { picture: featuredImage.media_details.sizes.large.source_url } )
+					this.setState( { picture: picture.media_details.sizes.thumbnail.source_url } )
 				} )
       }
       
