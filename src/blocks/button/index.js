@@ -49,13 +49,13 @@ export default registerBlockType(
     },
     edit: props => {
 
-      const { attributes: { url, buttonClass, hasIcon, icon, isBlank, label}, className, setAttributes } = props
+      const { attributes: { url, buttonClass, hasIcon, icon, isBlank, label}, setAttributes } = props
 
       return (
         <Fragment>
           <Inspector { ...{ url, isBlank, buttonClass, hasIcon, setAttributes } } />
   
-          <p className={ className }>
+          <p className="wp-block-captainwp-button">
             <div className={ classnames( 'editor-button', `button--${buttonClass}`) }>
               { hasIcon && (
                 <span className={ classnames( 'dashicons', `dashicons-${icon}`) }></span>

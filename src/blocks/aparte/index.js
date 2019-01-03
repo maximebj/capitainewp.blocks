@@ -29,7 +29,7 @@ export default registerBlockType(
       const { attributes: { title, content }, setAttributes} = props
 
       return (
-        <div className='aparte'>
+        <div className="wp-block-captainwp-aparte aparte">
           <RichText
             tagName="p"
             value={ title }

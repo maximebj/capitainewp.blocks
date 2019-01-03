@@ -1,8 +1,6 @@
 const { Component } = wp.element
 const { Spinner } = wp.components
 
-import classnames from 'classnames'
-
 export default class Preview extends Component {
 
   state = {
@@ -36,7 +34,7 @@ export default class Preview extends Component {
 
     return (
       definition ? (
-        <div className={ classnames( "wp-block-captainwp-definition", "definition") }>
+        <div className="wp-block-captainwp-definition definition">
           <header className="definition__header">
             { definition.meta.lesson != "" &&
               <a href="#" target="_blank" className="definition__button editor-button button--main">Cours dédié</a>

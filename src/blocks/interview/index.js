@@ -14,7 +14,7 @@ export default registerBlockType(
     description: "Afficher une Interview d'un membre de la communauté WordPress",
     category: 'common',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'groups' },
-    keywords: [ 'plugin' ],
+    keywords: [ 'people' ],
     attributes: {
       peopleID: {
         type: 'string',
@@ -30,10 +30,10 @@ export default registerBlockType(
 
       return (
         <Fragment>
-          <Inspector { ...{ attributes, setAttributes } } />
+          <Inspector { ...{ setAttributes } } />
 
           { peopleID ? (
-            <Preview { ...{ attributes, setAttributes } } />
+            <Preview { ...{ peopleID, content, setAttributes } } />
           ) : (
             <p class="captain-message">Recherchez une personne dans l'inspecteur</p>
           ) }

@@ -8,7 +8,7 @@ export default class Inspector extends Component {
 
   render() {
 
-    const { attributes: { peopleID }, setAttributes } = this.props
+    const { setAttributes } = this.props
 
     return (
       <InspectorControls>
@@ -17,7 +17,8 @@ export default class Inspector extends Component {
 
           <SearchPost
 						onChange={ peopleID => setAttributes( { peopleID } ) }
-            type="People"
+            type="peoples"
+            placeholder="Chercher une personne"
 					/>
 
         </PanelBody>

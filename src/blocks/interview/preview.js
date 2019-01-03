@@ -1,5 +1,6 @@
 const { Component } = wp.element
 const { RichText } = wp.editor
+const { Spinner } = wp.components
 
 export default class Preview extends Component {
 
@@ -10,20 +11,22 @@ export default class Preview extends Component {
 
   getPost = () => {
 
-    const { peopleID } = this.props.attributes
+    const { peopleID, content } = this.props
 
-    const postQuery = new wp.api.models.People( { id: peopleID } )
+    fetch( `/wp-json/wp/v2/peoples/${peopleID}` )
+    .then( response => response.json() )
+    .then( post => {
+      this.setState( { definition: post } )
 
-    postQuery.fetch().then( result => {
-
-      this.setState( { people: result } )
-
-      // Get picture
-      const pictureQuery = new wp.api.models.Media( { id: result.meta.photo } )
-
-      pictureQuery.fetch().then( result => {
-        this.setState( { picture: result.media_details.sizes.thumbnail.source_url } )
-      })
+      // Featured Media
+			if ( typeof post.featured_media != "undefined" && post.featured_media != 0 ) {
+				fetch( `/wp-json/wp/v2/media/${post.featured_media}` )
+				.then( response => response.json() )
+				.then( picture => {
+					this.setState( { picture: featuredImage.media_details.sizes.large.source_url } )
+				} )
+      }
+      
     } )
   }
 
@@ -43,12 +46,12 @@ export default class Preview extends Component {
 
   render() {
 
-    const { attributes: { content }, setAttributes } = this.props
+    const { content, setAttributes } = this.props
     const { people, picture } = this.state
 
     return (
       people ? (
-        <div className="interview">
+        <div className="wp-block-captainwp-interview interview">
 
           { picture &&
             <div className="interview__picture">
@@ -105,7 +108,10 @@ export default class Preview extends Component {
 
         </div>
       ) : (
-        <p className="captain-message">Chargement de la personne...</p>
+        <p class="captain-message">
+          <Spinner />
+          Chargement de l'interview...
+        </p>
       )
     )
   }

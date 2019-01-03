@@ -49,7 +49,7 @@ export default registerBlockType(
         <Fragment>
           <Inspector { ...{ favicon, setAttributes } } />
 
-          <div className='link'>
+          <div className="wp-block-captainwp-link link">
             <div className="link__content">
               <RichText
                 tagName="span"
