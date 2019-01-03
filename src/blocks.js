@@ -1,3 +1,7 @@
+// Main functions and styles
+import './styles/'
+
+// Blocks
 import './blocks/aparte'
 import './blocks/lesaviezvous'
 import './blocks/button'
