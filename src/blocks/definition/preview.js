@@ -1,4 +1,7 @@
 const { Component } = wp.element
+const { Spinner } = wp.components
+
+import classnames from 'classnames'
 
 export default class Preview extends Component {
 
@@ -8,12 +11,12 @@ export default class Preview extends Component {
 
   getPost = () => {
 
-    const { definitionID } = this.props.attributes
+    const { definitionID } = this.props
 
-    const postQuery = new wp.api.models.Definitions( { id: definitionID } )
-
-    postQuery.fetch().then( result => {
-      this.setState( { definition: result } )
+    fetch( `/wp-json/wp/v2/definitions/${definitionID}` )
+    .then( response => response.json() )
+    .then( post => {
+      this.setState( { definition: post } )
     } )
   }
 
@@ -33,10 +36,10 @@ export default class Preview extends Component {
 
     return (
       definition ? (
-        <div className="definition">
+        <div className={ classnames( "wp-block-captainwp-definition", "definition") }>
           <header className="definition__header">
             { definition.meta.lesson != "" &&
-              <a href="{definition.meta.lesson}" target="_blank" className="definition__button editor-button button--main">Cours dédié</a>
+              <a href="#" target="_blank" className="definition__button editor-button button--main">Cours dédié</a>
             }
             <div className="definition__icon"><span className="dashicons dashicons-book-alt"></span></div>
             <p className="definition__title">{definition.title.rendered}</p>
@@ -55,7 +58,10 @@ export default class Preview extends Component {
           </div>
         </div>
       ) : (
-        <p class="captain-message">Chargement de la définition...</p>
+        <p class="captain-message">
+          <Spinner />
+          Chargement de la définition...
+        </p>
       )
     )
   }

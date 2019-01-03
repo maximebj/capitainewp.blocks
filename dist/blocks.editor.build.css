@@ -148,14 +148,17 @@
     -ms-flex: 1;
         flex: 1;
     margin: 3px 2px; }
-.edit-post-visual-editor .definition p {
-  margin: 0; }
+.wp-block-captainwp-definition p {
+  margin: 0 !important; }
 
-.edit-post-visual-editor .definition__title {
+.wp-block-captainwp-definition .definition__title {
   font-size: 21.6px;
   line-height: 20px; }
 
-.edit-post-visual-editor .definition__button {
+.wp-block-captainwp-definition .definition__desc {
+  line-height: 1.4; }
+
+.wp-block-captainwp-definition .definition__button {
   background-color: #48add8;
   display: inline-block;
   border: none;
@@ -165,11 +168,11 @@
   border-radius: 2px;
   text-decoration: none; }
 
-.edit-post-visual-editor .definition__type {
+.wp-block-captainwp-definition .definition__type {
   font-size: 14.4px;
   margin-top: 3px; }
 
-.edit-post-visual-editor .definition__meta p {
+.wp-block-captainwp-definition .definition__meta p {
   font-size: 1em; }
 .edit-post-visual-editor .interview__title {
   font-size: 21.6px; }

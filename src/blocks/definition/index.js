@@ -14,23 +14,22 @@ export default registerBlockType(
     description: 'Afficher une définition',
     category: 'common',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'book-alt' },
-    keywords: [ 'definition' ],
+    keywords: [ 'dictionnaire' ],
     attributes: {
       definitionID: {
-        type: 'string',
+        type: 'integer',
       },
     },
     edit: ( props ) => {
 
-      const { attributes, setAttributes } = props
-      const { definitionID } = attributes
+      const { attributes: { definitionID }, setAttributes } = props
 
       return (
         <Fragment>
-          <Inspector { ...{ attributes, setAttributes } } />
+          <Inspector { ...{ setAttributes } } />
 
           { definitionID ? (
-            <Preview { ...{ attributes } } />
+            <Preview { ...{ definitionID } } />
           ) : (
             <p class="captain-message">Choisissez une définition dans l'inspecteur</p>
           ) }

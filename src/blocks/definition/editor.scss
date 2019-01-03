@@ -1,11 +1,15 @@
-.edit-post-visual-editor {
-  .definition p {
-    margin: 0;
+.wp-block-captainwp-definition {
+  p {
+    margin: 0 !important;
   }
 
   .definition__title {
     font-size: 21.6px;
     line-height: 20px;
+  }
+
+  .definition__desc {
+    line-height: 1.4;
   }
 
   .definition__button {

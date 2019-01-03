@@ -8,16 +8,17 @@ export default class Inspector extends Component {
 
   render() {
 
-    const { attributes: { peopleID }, setAttributes } = this.props
+    const { setAttributes } = this.props
 
     return (
       <InspectorControls>
 
-        <PanelBody title="Choix de la personne">
+        <PanelBody title="Choix de la définition">
 
           <SearchPost
-						onChange={ peopleID => setAttributes( { peopleID } ) }
-            type="People"
+						onChange={ definitionID => setAttributes( { definitionID } ) }
+            type="definitions"
+            placeholder="Chercher une définition"
 					/>
 
         </PanelBody>
