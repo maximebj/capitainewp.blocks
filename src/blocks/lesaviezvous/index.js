@@ -29,7 +29,7 @@ export default registerBlockType(
       const { attributes: { content }, setAttributes } = props
 
       return (
-        <div className="fact">
+        <div className="wp-block-captainwp-fact fact">
           <div className="fact__picture">{ emoji }</div>
           <div className="fact__content">
             <p className="fact__title">Le saviez-vous ?</p>

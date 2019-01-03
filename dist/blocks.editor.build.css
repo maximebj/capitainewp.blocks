@@ -71,9 +71,20 @@
   width: 32px;
   height: 32px; }
 
-.edit-post-visual-editor .fact {
+.wp-block-captainwp-fact .fact {
   margin-top: 0;
   margin-bottom: 0; }
+
+.wp-block-captainwp-fact .fact__title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px; }
+
+.wp-block-captainwp-fact p {
+  margin: 0; }
+
+.editor-styles-wrapper .wp-block-captainwp-fact p {
+  line-height: 1.4; }
 .captain-message {
   text-align: center;
   font-style: italic;
@@ -104,6 +115,102 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
+
+.wp-block-captainwp-button .editor-button,
+.blocks-color-palette .editor-button {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border: none;
+  padding: .6em 1.2em;
+  -webkit-appearance: none;
+  color: white;
+  border-radius: 2px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  .wp-block-captainwp-button .editor-button .dashicons,
+  .blocks-color-palette .editor-button .dashicons {
+    -webkit-transform: translateY(7px);
+        -ms-transform: translateY(7px);
+            transform: translateY(7px);
+    margin-right: 6px; }
+  .wp-block-captainwp-button .editor-button:hover,
+  .blocks-color-palette .editor-button:hover {
+    -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+            transform: scale(1.02);
+    color: white; }
+  .wp-block-captainwp-button .editor-button .editor-rich-text,
+  .blocks-color-palette .editor-button .editor-rich-text {
+    min-width: 50px; }
+
+.wp-block-captainwp-button .button--main,
+.blocks-color-palette .button--main {
+  background: #48ADD8; }
+  .wp-block-captainwp-button .button--main:hover,
+  .blocks-color-palette .button--main:hover {
+    background: #217599; }
+
+.wp-block-captainwp-button .button--premium,
+.blocks-color-palette .button--premium {
+  background: #FF2952; }
+  .wp-block-captainwp-button .button--premium:hover,
+  .blocks-color-palette .button--premium:hover {
+    background: #c20025; }
+
+.wp-block-captainwp-button .button--start,
+.blocks-color-palette .button--start {
+  background: #83BD71; }
+  .wp-block-captainwp-button .button--start:hover,
+  .blocks-color-palette .button--start:hover {
+    background: #51893f; }
+
+.wp-block-captainwp-button .button--gold,
+.blocks-color-palette .button--gold {
+  background: #FFC334; }
+  .wp-block-captainwp-button .button--gold:hover,
+  .blocks-color-palette .button--gold:hover {
+    background: #cd9000; }
+
+.wp-block-captainwp-button .button--soft,
+.blocks-color-palette .button--soft {
+  background: #ddd;
+  color: #444; }
+  .wp-block-captainwp-button .button--soft:hover,
+  .blocks-color-palette .button--soft:hover {
+    color: #444;
+    background: #c4c4c4; }
+
+.wp-block-captainwp-button .button--soon,
+.blocks-color-palette .button--soon {
+  opacity: .3;
+  color: #2F3344;
+  border: 2px solid #2F3344; }
+  .wp-block-captainwp-button .button--soon:hover,
+  .blocks-color-palette .button--soon:hover {
+    color: #2F3344; }
+
+.wp-block-captainwp-button .button--line,
+.blocks-color-palette .button--line {
+  border: 2px solid white; }
+
+.wp-block-captainwp-button .button--line-ui,
+.blocks-color-palette .button--line-ui {
+  border: 2px solid #232634;
+  color: #232634; }
+  .wp-block-captainwp-button .button--line-ui:hover,
+  .blocks-color-palette .button--line-ui:hover {
+    background: #232634; }
+
+.captain-buttons {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .captain-buttons span {
+    -ms-flex: 1;
+        flex: 1;
+    margin: 3px 2px; }
 .captain-message {
   text-align: center;
   font-style: italic;

@@ -4,8 +4,9 @@ import "./editor.scss"
 import classnames from 'classnames'
 import Inspector from './inspect'
 
-const { registerBlockType } = wp.blocks;
-const { RichText } = wp.editor;
+const { registerBlockType } = wp.blocks
+const { RichText } = wp.editor
+const { Fragment } = wp.element
 
 export default registerBlockType(
   'captainwp/button',
@@ -43,78 +44,54 @@ export default registerBlockType(
         default: true,
       },
       buttonClass: {
-        source: 'attribute',
-        attribute: 'data-type',
-        selector: 'a',
         default: 'start',
       },
     },
     edit: props => {
 
-      const onChangeLabel = value => {
-        props.setAttributes( { label: value } )
-      };
+      const { attributes: { url, buttonClass, hasIcon, icon, isBlank, label}, className, setAttributes } = props
 
-      const onChangeURL = value => {
-        props.setAttributes( { url: value } );
-      };
-
-      const onChangeIcon = value => {
-        props.setAttributes( { icon: value } );
-      };
-
-      const toggleTarget = () => {
-        props.setAttributes( { isBlank: ! props.attributes.isBlank } );
-      }
-
-      const toggleHasIcon = () => {
-        props.setAttributes( { hasIcon: ! props.attributes.hasIcon } );
-      }
-
-      const onChangeClass = event => {
-        props.setAttributes( { buttonClass: event.target.value } );
-      }
-
-      return [
-        !! props.focus && (
-          <Inspector { ...{ onChangeClass, onChangeIcon, onChangeURL, toggleHasIcon, toggleTarget, ...props} } />
-        )
-				,
-        <p className={ props.className }>
-          <div className={ classnames('editor-button', `button--${props.attributes.buttonClass}`) }>
-            { !! props.attributes.hasIcon && (
-              <span className={ classnames('dashicons', `dashicons-${props.attributes.icon}`) }></span>
-              )
-            }
-            <RichText
-              tagName="span"
-              placeholder="Intitulé du bouton"
-              value={ props.attributes.label }
-              onChange={ onChangeLabel }
-              focus = { props.focus }
-            />
-          </div>
-        </p>
-      ]
+      return (
+        <Fragment>
+          <Inspector { ...{ url, isBlank, buttonClass, hasIcon, setAttributes } } />
+  
+          <p className={ className }>
+            <div className={ classnames( 'editor-button', `button--${buttonClass}`) }>
+              { hasIcon && (
+                <span className={ classnames( 'dashicons', `dashicons-${icon}`) }></span>
+              ) }
+              <RichText
+                tagName="span"
+                placeholder="Intitulé du bouton"
+                value={ label }
+                onChange={ label => setAttributes( { label } ) }
+              />
+            </div>
+          </p>
+        </Fragment>
+      )
     },
     save: props => {
+
+      const { buttonClass, hasIcon, icon, label, url, isBlank } = props.attributes
+
       return (
         <p>
           <a
-            href={ props.attributes.url }
-            target={ props.attributes.isBlank && '_blank' }
-            className={ classnames('button', `button--${props.attributes.buttonClass}`) }
-            data-type={ props.attributes.buttonClass }
+            href={ url }
+            target={ isBlank && '_blank' }
+            className={ classnames( 'button', `button--${buttonClass}` ) }
+            data-type={ buttonClass }
           >
-            { !! props.attributes.hasIcon && (
+            { !! hasIcon && (
               <span
-                className={ classnames('dashicons', `dashicons-${props.attributes.icon}`) }
-                data-icon={ props.attributes.icon }
+                className={ classnames( 'dashicons', `dashicons-${icon}` ) }
+                data-icon={ icon }
               >
               </span>
               )
             }
-            <span>{ props.attributes.label }</span>
+            <span>{ label }</span>
           </a>
         </p>
       )

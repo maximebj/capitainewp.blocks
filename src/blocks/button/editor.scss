@@ -1,0 +1,102 @@
+.wp-block-captainwp-button,
+.blocks-color-palette {
+
+  .editor-button {
+    display: inline-flex;
+    border: none;
+    padding: .6em 1.2em;
+    -webkit-appearance: none;
+    color: white;
+    border-radius: 2px;
+    transition: all $transition-speed ease-in-out;
+
+    .dashicons {
+      transform: translateY(7px);
+      margin-right: 6px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      color: white;
+    }
+
+    .editor-rich-text {
+      min-width: 50px;
+    }
+  }
+      
+  .button--main {
+    background: $color-1;
+
+    &:hover {
+      background: $color-1-hov;
+    }
+  }
+
+  .button--premium {
+    background: $color-2;
+
+    &:hover {
+      background: $color-2-hov;
+    }
+  }
+
+  .button--start {
+    background: $color-3;
+
+    &:hover {
+      background: $color-3-hov;
+    }
+  }
+
+  .button--gold {
+    background: $color-4;
+
+    &:hover {
+      background: $color-4-hov;
+    }
+  }
+
+  .button--soft {
+    background: $neutral-dark;
+    color: $txt-alt;
+
+    &:hover {
+      color: $txt-alt;
+      background: darken($neutral-dark, 10%);
+    }
+  }
+
+  .button--soon {
+    opacity: .3;
+    color: $ui-contrast;
+    border: 2px solid $ui-contrast;
+
+    &:hover {
+      color: $ui-contrast;
+    }
+  }
+
+  .button--line {
+    border: 2px solid white;
+  }
+
+  .button--line-ui {
+    border: 2px solid $ui-dark;
+    color: $ui-dark;
+
+    &:hover {
+      background: $ui-dark;
+    }
+  }
+}
+
+.captain-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  
+  span {
+    flex: 1;
+    margin: 3px 2px;
+  }
+}

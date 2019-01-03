@@ -1,80 +1,64 @@
-import ButtonClasses from './buttonclasses'
 import IconList from './iconlist'
 
 const { Component } = wp.element
-const {
-  InspectorControls,
-  BlockDescription,
-  UrlInput,
-} = wp.editor
-const {
-  PanelBody,
-  PanelRow,
-  FormToggle,
-} = wp.components
+const { InspectorControls } = wp.editor
+const { PanelBody, ToggleControl, ColorPalette, TextControl } = wp.components
 
 export default class Inspector extends Component {
 
   render() {
+
+    const { url, isBlank, buttonClass, hasIcon, setAttributes } = this.props
+
+    const colors = [
+      { name: 'start',   color: "#83BD71" },
+      { name: 'main',    color: "#48ADD8" },
+      { name: 'premium', color: "#FF2952" },
+      { name: 'gold',    color: "#FFC334" },
+      { name: 'soft',    color: "#dddddd" },
+    ]
+
     return (
       <InspectorControls>
-        <h3>Attributs du lien</h3>
-        <p>URL</p>
-
-        <UrlInput
-          className="url"
-          value={ this.props.attributes.url }
-          onChange={ this.props.onChangeURL }
-        />
-
-        <PanelRow>
-          <label
-            htmlFor="target-form-toggle"
-            className="blocks-base-control__label"
-          >
-            Nouvel onglet
-          </label>
-          <FormToggle
-            id="target-form-toggle"
-            label='Nouvel onglet'
-            checked={ !! this.props.attributes.isBlank }
-            onChange={ this.props.toggleTarget }
+        <PanelBody title="Attributs du lien">
+          <TextControl
+            type="url"
+            value={ url }
+            onChange={ url => setAttributes( { url } ) }
+            placeHolder="https://"
           />
-        </PanelRow>
-
-        <PanelBody
-          title='Type de bouton'
-        >
-
-          <ButtonClasses onChangeClass={this.props.onChangeClass} />
+        
+          <ToggleControl
+            label='Nouvel onglet'
+            checked={ isBlank }
+            onChange={ () => setAttributes( { isBlank : ! isBlank } ) }
+          />
         </PanelBody>
 
-        <PanelBody
-          title='Icône'
-        >
+        <PanelBody title='Type de bouton'>
+          <ColorPalette 
+            colors={ colors } 
+            value={ buttonClass }
+            onChange={ color => setAttributes( { buttonClass: _.find( colors, { color } ).name } ) }
+            disableCustomColors={ true }
+          />
+        </PanelBody>
 
-          <PanelRow>
-            <label
-              htmlFor="icon-form-toggle"
-              className="blocks-base-control__label"
-            >
-              Afficher une icône ?
-            </label>
-            <FormToggle
-              id="icon-form-toggle"
-              label='Afficher une icône ?'
-              checked={ !! this.props.attributes.hasIcon }
-              onChange={ this.props.toggleHasIcon }
-            />
-          </PanelRow>
+        <PanelBody title="Icône">
+          
+          <ToggleControl
+            label='Afficher une icône ?'
+            checked={ hasIcon }
+            onChange={ () => setAttributes( { hasIcon : ! hasIcon } ) }
+          />
 
           {
-            !! this.props.attributes.hasIcon && (
-              <IconList onChangeIcon={ this.props.onChangeIcon } />
+            hasIcon && (
+              <IconList onChangeIcon={ icon => setAttributes( { icon } ) } />
             )
           }
-
         </PanelBody>
+        
 
       </InspectorControls>
     )

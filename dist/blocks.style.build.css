@@ -142,6 +142,9 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
+
+.wp-block-captainwp-button {
+  text-align: center; }
 .captain-message {
   text-align: center;
   font-style: italic;
