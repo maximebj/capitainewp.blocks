@@ -222,4 +222,6 @@
   font-size: 19.8px; }
 
 .edit-post-visual-editor .link__desc {
-  margin-top: 10px; }
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.4; }

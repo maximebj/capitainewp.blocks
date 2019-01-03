@@ -33,6 +33,7 @@ export default registerBlockType(
       label: {
         source: 'text',
         selector: '.link__button',
+        default: 'Voir le site',
       },
       favicon: {
         source: 'attribute',
