@@ -1,6 +1,304 @@
-.aparte{background:#48ADD8;padding:20px;border-radius:4px;margin:2em 0}.aparte__title{font-size:1.2em;font-family:"Poppins",sans-serif;color:white}.aparte__content a{color:white;text-decoration:underline}.aparte__content p{color:white;margin:1.5em 0}.aparte__content p:last-child{margin-bottom:0}
-.fact{margin:1.5em 0 1.5em 90px;position:relative;font-size:.9em;padding:20px;border-radius:4px;background:#f8f8f8}.fact:after{content:"";display:block;position:absolute;left:-20px;top:40px;width:0;height:0;border-right:20px solid #f8f8f8;border-top:20px solid transparent;border-bottom:20px solid transparent;border-left:0 solid transparent}.fact__title{text-transform:uppercase;font-weight:700;margin-bottom:8px}.fact__picture{display:block;width:60px;position:absolute;top:30px;left:-90px}
-.wp-block-captainwp-button{text-align:center}
-.definition{margin:1.5em 0}.definition__header{position:relative;border:1px solid #ddd;padding:12px 12px 6px 60px;border-bottom:none}.definition__header:after{content:"";position:absolute;top:100%;left:85px;display:block;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #fff}.definition__icon{position:absolute;top:10px;left:10px;width:40px;height:40px;background:#f8f8f8;border-radius:50%;padding:10px;float:left}.definition__title{font-size:1.2em;line-height:20px;text-transform:uppercase;color:#48ADD8}.definition__type{text-transform:uppercase;color:#FF2952;font-size:0.8em;font-weight:300;margin-top:3px}.definition__content{padding:12px;padding-top:20px;background:#48ADD8;color:#fff}.definition__meta{padding:12px;font-size:0.8em;font-weight:300;background:#48ADD8;color:#fff}.definition__meta p{margin-top:3px}.definition__meta a{font-weight:400}.definition__button{float:right}@media (min-width: 768px){.definition__button{font-size:0.8em}}@media (max-width: 767px){.definition__button{padding:2px 6px;font-size:0.7em}}
-.interview{position:relative;border:1px solid #ddd;margin:66px 0 1.5em;padding:60px 0 0 0}.interview__picture{position:absolute;top:-50px;left:calc(50% - 50px);width:100px;height:100px}.interview__picture img{display:block;border:1px solid #ddd;border-radius:50%}@media (max-width: 767px){.interview__awards{text-align:center}}.interview__award{border:1px solid #ddd;border-radius:20px;background:#fff;color:#444;line-height:1.5}@media (min-width: 768px){.interview__award{position:absolute;padding:3px 9px;font-size:0.75em;top:-13px}}@media (max-width: 767px){.interview__award{display:inline-block;margin-bottom:4px;padding:2px 5px;font-size:0.65em;top:70px}}.interview__award span{color:#FFC334;margin-right:3px}@media (min-width: 768px){.interview__award span{font-size:1.5em}}@media (max-width: 767px){.interview__award span{font-size:1.2em;width:12px;height:12px;-webkit-transform:translateY(1px);-ms-transform:translateY(1px);transform:translateY(1px)}}@media (min-width: 1025px){.interview__award--left{right:calc(50% + 120px)}}@media (min-width: 768px) and (max-width: 1024px){.interview__award--left{right:calc(50% + 70px)}}@media (min-width: 1025px){.interview__award--right{left:calc(50% + 120px)}}@media (min-width: 768px) and (max-width: 1024px){.interview__award--right{left:calc(50% + 70px)}}.interview__title{text-align:center;color:#48ADD8;font-size:1.2em}@media (max-width: 767px){.interview__title{margin-top:56px}}.interview__title span{text-transform:uppercase}.interview__work{text-align:center;color:#444;font-weight:300}.interview__work:after{margin:20px auto 0;content:"";display:block;width:120px;border-top:1px solid #ddd}.interview__desc{padding:12px;font-size:0.9em}.interview__meta{padding:12px 20px;color:#747680;font-size:0.8em;font-weight:300;background:#f8f8f8;border-top:1px solid #ddd}@media (min-width: 768px){.interview__meta{text-align:right}}.interview__meta a{font-weight:400}
-.link{margin:1.5em 0;border:1px solid #ddd}.link__content{padding:12px}.link__favicon{width:20px;vertical-align:middle;-webkit-transform:translateY(-2px);-ms-transform:translateY(-2px);transform:translateY(-2px)}.link__title{font-size:1.1em;line-height:20px}.link__site{margin-left:5px}.link__button{font-size:0.8em;float:right;margin:0 0 12px 12px}@media (max-width: 767px){.link__button{display:none}}.link__desc{margin-top:10px;font-size:0.85em;color:#333}@media (min-width: 768px){.link__desc{padding-left:26px}}.link__meta{color:#747680;font-size:0.8em;font-weight:300;background:#f8f8f8;border-top:border}@media (min-width: 768px){.link__meta{padding:12px 12px 12px 36px}}@media (max-width: 767px){.link__meta{padding:12px}}.link__meta .pocket-btn{float:right}
+.aparte {
+  background: #48ADD8;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 2em 0; }
+
+.aparte__title {
+  font-size: 1.2em;
+  font-family: "Poppins", sans-serif;
+  color: white; }
+
+.aparte__content a {
+  color: white;
+  text-decoration: underline; }
+
+.aparte__content p {
+  color: white;
+  margin: 1.5em 0; }
+
+.aparte__content p:last-child {
+  margin-bottom: 0; }
+.fact {
+  margin: 1.5em 0 1.5em 90px;
+  position: relative;
+  font-size: .9em;
+  padding: 20px;
+  border-radius: 4px;
+  background: #f8f8f8; }
+  .fact:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -20px;
+    top: 40px;
+    width: 0;
+    height: 0;
+    border-right: 20px solid #f8f8f8;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 0 solid transparent; }
+
+.fact__title {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px; }
+
+.fact__picture {
+  display: block;
+  width: 60px;
+  position: absolute;
+  top: 30px;
+  left: -90px; }
+.wp-block-captainwp-button {
+  text-align: center; }
+.definition {
+  margin: 1.5em 0; }
+
+.definition__header {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 12px 12px 6px 60px;
+  border-bottom: none; }
+
+.definition__header:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 85px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff; }
+
+.definition__icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  padding: 10px;
+  float: left; }
+
+.definition__title {
+  font-size: 1.2em;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #48ADD8; }
+
+.definition__type {
+  text-transform: uppercase;
+  color: #FF2952;
+  font-size: 0.8em;
+  font-weight: 300;
+  margin-top: 3px; }
+
+.definition__content {
+  padding: 12px;
+  padding-top: 20px;
+  background: #48ADD8;
+  color: #fff; }
+
+.definition__meta {
+  padding: 12px;
+  font-size: 0.8em;
+  font-weight: 300;
+  background: #48ADD8;
+  color: #fff; }
+
+.definition__meta p {
+  margin-top: 3px; }
+
+.definition__meta a {
+  font-weight: 400; }
+
+.definition__button {
+  float: right; }
+
+@media (min-width: 768px) {
+  .definition__button {
+    font-size: 0.8em; } }
+
+@media (max-width: 767px) {
+  .definition__button {
+    padding: 2px 6px;
+    font-size: 0.7em; } }
+.interview {
+  position: relative;
+  border: 1px solid #ddd;
+  margin: 66px 0 1.5em;
+  padding: 60px 0 0 0; }
+
+.interview__picture {
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px; }
+
+.interview__picture img {
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 50%; }
+
+@media (max-width: 767px) {
+  .interview__awards {
+    text-align: center; } }
+
+.interview__award {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: #fff;
+  color: #444;
+  line-height: 1.5; }
+
+@media (min-width: 768px) {
+  .interview__award {
+    position: absolute;
+    padding: 3px 9px;
+    font-size: 0.75em;
+    top: -13px; } }
+
+@media (max-width: 767px) {
+  .interview__award {
+    display: inline-block;
+    margin-bottom: 4px;
+    padding: 2px 5px;
+    font-size: 0.65em;
+    top: 70px; } }
+
+.interview__award span {
+  color: #FFC334;
+  margin-right: 3px; }
+
+@media (min-width: 768px) {
+  .interview__award span {
+    font-size: 1.5em; } }
+
+@media (max-width: 767px) {
+  .interview__award span {
+    font-size: 1.2em;
+    width: 12px;
+    height: 12px;
+    -webkit-transform: translateY(1px);
+        -ms-transform: translateY(1px);
+            transform: translateY(1px); } }
+
+@media (min-width: 1025px) {
+  .interview__award--left {
+    right: calc(50% + 120px); } }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .interview__award--left {
+    right: calc(50% + 70px); } }
+
+@media (min-width: 1025px) {
+  .interview__award--right {
+    left: calc(50% + 120px); } }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .interview__award--right {
+    left: calc(50% + 70px); } }
+
+.interview__title {
+  text-align: center;
+  color: #48ADD8;
+  font-size: 1.2em; }
+
+@media (max-width: 767px) {
+  .interview__title {
+    margin-top: 56px; } }
+
+.interview__title span {
+  text-transform: uppercase; }
+
+.interview__work {
+  text-align: center;
+  color: #444;
+  font-weight: 300; }
+
+.interview__work:after {
+  margin: 20px auto 0;
+  content: "";
+  display: block;
+  width: 120px;
+  border-top: 1px solid #ddd; }
+
+.interview__desc {
+  padding: 12px;
+  font-size: 0.9em; }
+
+.interview__meta {
+  padding: 12px 20px;
+  color: #747680;
+  font-size: 0.8em;
+  font-weight: 300;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd; }
+
+@media (min-width: 768px) {
+  .interview__meta {
+    text-align: right; } }
+
+.interview__meta a {
+  font-weight: 400; }
+.link {
+  margin: 1.5em 0;
+  border: 1px solid #ddd; }
+
+.link__content {
+  padding: 12px; }
+
+.link__favicon {
+  width: 20px;
+  vertical-align: middle;
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px); }
+
+.link__title {
+  font-size: 1.1em;
+  line-height: 20px; }
+
+.link__site {
+  margin-left: 5px; }
+
+.link__button {
+  font-size: 0.8em;
+  float: right;
+  margin: 0 0 12px 12px; }
+
+@media (max-width: 767px) {
+  .link__button {
+    display: none; } }
+
+.link__desc {
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: #333; }
+
+@media (min-width: 768px) {
+  .link__desc {
+    padding-left: 26px; } }
+
+.link__meta {
+  color: #747680;
+  font-size: 0.8em;
+  font-weight: 300;
+  background: #f8f8f8;
+  border-top: border; }
+
+@media (min-width: 768px) {
+  .link__meta {
+    padding: 12px 12px 12px 36px; } }
+
+@media (max-width: 767px) {
+  .link__meta {
+    padding: 12px; } }
+
+.link__meta .pocket-btn {
+  float: right; }
