@@ -8,12 +8,12 @@ export default class IconList extends Component {
   render() {
 
     return (
-      <div class="captain-buttons">
-        { dashIconList.map( value => {
+      <div class="captain-icons">
+        { dashIconList.map( icon => {
           return (
             <span
-              className={ classnames('dashicons', `dashicons-${value}`) }
-              onClick={ () => this.props.onChangeIcon(icon) }
+              className={ classnames('dashicons', `dashicons-${icon}`) }
+              onClick={ () => this.props.onChange( icon ) }
             >
             </span>
           )

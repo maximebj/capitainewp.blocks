@@ -54,7 +54,7 @@ export default class Inspector extends Component {
 
           {
             hasIcon && (
-              <IconList onChangeIcon={ icon => setAttributes( { icon } ) } />
+              <IconList onChange={ icon => setAttributes( { icon } ) } />
             )
           }
         </PanelBody>
