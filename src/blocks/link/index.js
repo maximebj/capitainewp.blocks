@@ -104,9 +104,9 @@ export default registerBlockType(
       return (
         <div className="link">
           <div className="link__content">
-            <a href={url} target="_blank" className="link__button button button--main">{label}</a>
+            <a href={url} target="_blank" className="link__button button button--main" rel="noreferrer noopener">{label}</a>
             <p className="link__title">
-              <a href={url} target="_blank">
+              <a href={url} target="_blank" rel="noreferrer noopener">
                 <img className="link__favicon" alt={title} src={favicon} />
                 <span class="link__site">{title}</span>
               </a>
