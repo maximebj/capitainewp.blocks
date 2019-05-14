@@ -79,7 +79,8 @@ export default registerBlockType(
         <p>
           <a
             href={ url }
-            target={ isBlank && '_blank' }
+            target={isBlank && '_blank'}
+            rel={isBlank && 'noopener noreferrer'}
             className={ classnames( 'button', `button--${buttonClass}` ) }
             data-type={ buttonClass }
           >
