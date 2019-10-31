@@ -77,6 +77,7 @@ class CapitaineWPBlocks {
 
     $id = $attributes['definitionID'];
     $context['definition'] = \Timber::get_post($id);
+    $context['current_lesson'] = get_the_id();
 
     return \Timber::compile( 'blocks/definition.twig', $context );
   }
