@@ -1,35 +1,38 @@
-.wp-block-captainwp-definition {
-  p {
-    margin: 0 !important;
-  }
+.editor-styles-wrapper {
 
-  .definition__title {
-    font-size: 21.6px;
-    line-height: 20px;
-  }
+  .wp-block-captainwp-definition {
+    p {
+      margin: 0 !important;
+    }
 
-  .definition__desc {
-    line-height: 1.4;
-  }
+    .definition__title {
+      font-size: 21.6px;
+      line-height: 20px;
+    }
 
-  .definition__button {
-    background-color: #48add8;
-    display: inline-block;
-    border: none;
-    padding: .6em 1.2em;
-    -webkit-appearance: none;
-    color: #fff;
-    border-radius: 2px;
-    text-decoration: none;
-  }
+    .definition__desc {
+      line-height: 1.4;
+    }
 
-  .definition__type {
-    font-size: 14.4px;
-    margin-top: 3px;
-  }
+    .definition__button {
+      background-color: #48add8;
+      display: inline-block;
+      border: none;
+      padding: .6em 1.2em;
+      -webkit-appearance: none;
+      color: #fff;
+      border-radius: 2px;
+      text-decoration: none;
+    }
 
-  .definition__meta p {
-    font-size: 1em;
-  }
+    .definition__type {
+      font-size: 14.4px;
+      margin-top: 3px;
+    }
 
+    .definition__meta p {
+      font-size: 1em;
+    }
+
+  }
 }

@@ -1,18 +1,19 @@
-.wp-block-captainwp-aparte {
-  
-  margin: 0;
+.editor-styles-wrapper {
+  .wp-block-captainwp-aparte {
+    
+    margin: 0;
 
-  .aparte__title {
-    font-size: 1.2em;
-    margin-top: 0;
-  }
+    .aparte__title {
+      font-size: 1.2em;
+      margin-top: 0;
+    }
 
-  .aparte__content p {
-    margin: 1em 0;
+    .aparte__content p {
+      margin: 1em 0;
 
-    &:last-child {
-      margin-bottom: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
-
 }

@@ -1,22 +1,19 @@
-.wp-block-captainwp-fact {
-  .fact {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+.editor-styles-wrapper {
+  .wp-block-captainwp-fact {
+    .fact {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
 
-  .fact__title {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
+    .fact__title {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
 
-  p {
-    margin: 0;
-  }
-}
-
-.editor-styles-wrapper .wp-block-captainwp-fact {
-  p {
-    line-height: 1.4;
+    p {
+      margin: 0;
+      line-height: 1.4;
+    }
   }
 }
