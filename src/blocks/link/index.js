@@ -4,7 +4,7 @@ import "./editor.scss"
 import Inspector from './inspect'
 
 const { registerBlockType } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 const { Fragment } = wp.element
 
 export default registerBlockType(
@@ -12,7 +12,7 @@ export default registerBlockType(
   {
     title: 'Lien',
     description: 'Un lien amélioré vers un autre site',
-    category: 'common',
+    category: 'captain',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'admin-links' },
     keywords: [],
     attributes: {

@@ -1,7 +1,7 @@
 import IconList from './iconlist'
 
 const { Component } = wp.element
-const { InspectorControls } = wp.editor
+const { InspectorControls } = wp.blockEditor
 const { PanelBody, ToggleControl, ColorPalette, TextControl } = wp.components
 
 export default class Inspector extends Component {

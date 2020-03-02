@@ -12,7 +12,7 @@ export default registerBlockType(
   {
     title: 'Interview',
     description: "Afficher une Interview d'un membre de la communauté WordPress",
-    category: 'common',
+    category: 'captain',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'groups' },
     keywords: [ 'people' ],
     attributes: {

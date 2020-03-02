@@ -12,7 +12,7 @@ export default registerBlockType(
   {
     title: 'Définition',
     description: 'Afficher une définition',
-    category: 'common',
+    category: 'captain',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'book-alt' },
     keywords: [ 'dictionnaire' ],
     attributes: {

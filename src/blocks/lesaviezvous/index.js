@@ -4,14 +4,14 @@ import "./editor.scss"
 import emoji from './emoji.js'
 
 const { registerBlockType } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 
 export default registerBlockType(
   'captainwp/lesaviezvous',
   {
     title: 'Le saviez-vous ?',
     description: 'Pour afficher une information factuelle',
-    category: 'common',
+    category: 'captain',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'smiley' },
     keywords: [
       'fait',

@@ -1,7 +1,7 @@
 import SearchPost from '../../components/searchpost'
 
 const { Component } = wp.element
-const { InspectorControls } = wp.editor
+const { InspectorControls } = wp.blockEditor
 const { PanelBody } = wp.components
 
 export default class Inspector extends Component {

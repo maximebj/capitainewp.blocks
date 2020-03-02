@@ -1,5 +1,5 @@
 const { Component } = wp.element
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 const { Spinner } = wp.components
 
 export default class Preview extends Component {

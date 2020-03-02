@@ -2,14 +2,14 @@ import "./style.scss"
 import "./editor.scss"
 
 const { registerBlockType } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 
 export default registerBlockType(
   'captainwp/aparte',
   {
     title: 'Aparté',
     description: 'Un bloc bleu pour une belle aparté',
-    category: 'common',
+    category: 'captain',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'slides' },
     keywords: [],
     attributes: {

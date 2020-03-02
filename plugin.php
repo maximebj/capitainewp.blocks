@@ -10,56 +10,58 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+namespace CapitaineWP;
 
+defined( 'ABSPATH' ) || exit;
 
-class CapitaineWPBlocks {
+class Blocks {
 
 	public function register_hooks() {
     add_action( 'init', [ $this, 'register_render'] );
-    add_action( 'enqueue_block_editor_assets', [ $this, 'register_editor_assets' ] );
-    add_action( 'enqueue_block_assets', [ $this, 'register_public_assets' ] );
+    add_action( 'init', [ $this, 'register_assets' ] );
+    add_filter( 'block_categories', [ $this, 'add_block_category' ] );
   }
 
-  public function register_editor_assets() {
 
-    $js = 'dist/blocks.build.js';
+  public function register_assets() {
 
-  	wp_enqueue_script(
-  		'capitainewp-blocs',
-  		plugins_url( $js, __FILE__ ),
-  	  [ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
-      filemtime( plugin_dir_path( __FILE__ ) . $js )
-  	);
+    // Blocks Styles (Front + Editor)
+    wp_register_style(
+      'capitainewp-blocs',
+      plugins_url( 'dist/blocks.style.build.css' , __FILE__ ),
+      is_admin() ? [ 'wp-editor' ] : null,
+      '1.0'
+    );
 
-    $css = 'dist/blocks.editor.build.css';
+    // Blocks scripts (Editor)
+    wp_register_script(
+      'capitainewp-blocs',
+      plugins_url( 'dist/blocks.build.js', __FILE__ ),
+      [ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
+      '1.0',
+      true
+    );
 
-  	wp_enqueue_style(
-  		'capitainewp-blocs-editor',
-  		plugins_url( $css , __FILE__ ),
-  		[ 'wp-edit-blocks' ],
-      filemtime( plugin_dir_path( __FILE__ ) . $css )
-  	);
-  }
+    // Special styles (Editor)
+    wp_register_style(
+      'capitainewp-blocs-editor',
+      plugins_url( 'dist/blocks.editor.build.css', __FILE__ ),
+      [ 'wp-edit-blocks' ],
+      '1.0'
+    );
 
-  public function register_public_assets() {
-
-    $css = 'dist/blocks.style.build.css';
-
-    wp_enqueue_style(
-      'capitainwp-blocks',
-      plugins_url( $css , __FILE__ ),
-      [],
-      filemtime( plugin_dir_path( __FILE__ ) . $css )
+    // Register block to load assets
+    register_block_type(
+      'capitainewp/blocks', array(
+        'style'         => 'capitainewp-blocs',
+        'editor_script' => 'capitainewp-blocs',
+        'editor_style'  => 'capitainewp-blocs-editor',
+      )
     );
   }
 
+
   public function register_render() {
-    
-    // WP 5 Compatibility
-    if ( ! function_exists('register_block_type') ) {
-      return;
-    }
 
     register_block_type(
       'captainwp/definition',
@@ -72,6 +74,7 @@ class CapitaineWPBlocks {
     );
   }
 
+
   public function render_definition_block( $attributes ) {
     global $context;
 
@@ -82,22 +85,32 @@ class CapitaineWPBlocks {
     return \Timber::compile( 'blocks/definition.twig', $context );
   }
 
+
   public function render_interview_block( $attributes ) {
     global $context;
 
     $id = $attributes['peopleID'];
-    $context['people'] = \Timber::get_post($id);
-    $context['content'] = $attributes['content'];
+    $context['people'] = \Timber::get_post( $id );
+    $context['content'] = $attributes['content'] ?? '';
 
     // define article
-    $vowels = array("a", "e", "i", "o", "u", "y");
+    $vowels = array( "a", "e", "i", "o", "u", "y" );
     $first_letter = strtolower( substr( $context['people']->post_title, 0, 1 ) );
 
     $context['article'] = in_array( $first_letter, $vowels ) ? "d'" : "de ";
 
     return \Timber::compile( 'blocks/interview.twig', $context );
   }
+
+
+  public function add_block_category( $categories ) {
+    $categories[] = array(
+      'slug' => 'captain',
+      'title' => 'Capitaine WP',
+    );
+
+    return $categories;
+  }
 }
 
-$CapitaineWPBlocks = new CapitaineWPBlocks();
-$CapitaineWPBlocks->register_hooks();
+(new Blocks)->register_hooks();

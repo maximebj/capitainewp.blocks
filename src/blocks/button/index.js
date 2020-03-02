@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import Inspector from './inspect'
 
 const { registerBlockType } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 const { Fragment } = wp.element
 
 export default registerBlockType(
@@ -13,7 +13,7 @@ export default registerBlockType(
   {
     title: '+ Bouton',
     description: 'Bouton amélioré spécial Capitaine',
-    category: 'common',
+    category: 'captain',
     icon: { background: '#48ADD8', foreground: "#fff", src: 'external' },
     keywords: [
       'button',
