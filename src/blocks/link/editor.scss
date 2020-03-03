@@ -1,8 +1,8 @@
-.edit-post-visual-editor {
+.editor-styles-wrapper {
   .button {
     display: inline-block;
     border: none;
-    padding: .6em 1.2em;
+    padding: .4em 1.2em;
     -webkit-appearance: none;
     color: #fff;
     border-radius: 2px;
@@ -25,14 +25,8 @@
     font-family: 'Rubik', sans-serif;
   }
 
-  .link__meta .editor-rich-text {
+  .link__meta .block-editor-rich-text {
     display: inline-block;
-    min-width: 300px;
-  }
-
-  .link__title .editor-rich-text {
-    display: inline-block;
-    margin-left: 5px;
     min-width: 300px;
   }
 
@@ -42,8 +36,15 @@
     font-size: 19.8px;
   }
 
+  .link__title .block-editor-rich-text {
+    display: inline-block;
+    margin-left: 5px;
+    min-width: 300px;
+  }
+
   .link__desc {
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 0;
     font-size: 15px;
     line-height: 1.4;
   }

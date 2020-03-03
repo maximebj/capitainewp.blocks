@@ -63,3 +63,26 @@
     }
   }
 }
+
+
+// Image caption
+.wp-block-image {
+  figcaption {
+    position: relative;
+    font-size: 15px;
+    color: #747680;
+    text-align: right;
+    margin: 0;
+  }
+
+  figcaption:before {
+    content: "";
+    display: inline-block;
+    font-size: 1.3em;
+    opacity: .5;
+    font-family: dashicons;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    margin-right: 5px;
+  }
+}

@@ -30,7 +30,7 @@ class Blocks {
       'capitainewp-blocs',
       plugins_url( 'dist/blocks.style.build.css' , __FILE__ ),
       is_admin() ? [ 'wp-editor' ] : null,
-      '1.0'
+      '1.1'
     );
 
     // Blocks scripts (Editor)
@@ -38,7 +38,7 @@ class Blocks {
       'capitainewp-blocs',
       plugins_url( 'dist/blocks.build.js', __FILE__ ),
       [ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
-      '1.0',
+      '1.1',
       true
     );
 
@@ -47,7 +47,7 @@ class Blocks {
       'capitainewp-blocs-editor',
       plugins_url( 'dist/blocks.editor.build.css', __FILE__ ),
       [ 'wp-edit-blocks' ],
-      '1.0'
+      '1.1'
     );
 
     // Register block to load assets
