@@ -1,3 +1,7 @@
 .wp-block-captainwp-button { 
   text-align: center;
 }
+
+.wp-content p.wp-block-captainwp-button {
+  margin: $content-margin 0;
+}

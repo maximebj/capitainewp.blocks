@@ -2,7 +2,7 @@
   background: #48ADD8;
   padding: 20px;
   border-radius: 4px;
-  margin: 2em 0; }
+  margin: 2.5em 0; }
 
 .aparte__title {
   font-size: 1.2em;
@@ -20,7 +20,7 @@
 .aparte__content p:last-child {
   margin-bottom: 0; }
 .fact {
-  margin: 1.5em 0 1.5em 90px;
+  margin: 2.5em 0 2.5em 90px;
   position: relative;
   font-size: .9em;
   padding: 20px;
@@ -52,8 +52,11 @@
   left: -90px; }
 .wp-block-captainwp-button {
   text-align: center; }
+
+.wp-content p.wp-block-captainwp-button {
+  margin: 2.5em 0; }
 .definition {
-  margin: 1.5em 0; }
+  margin: 2.5em 0; }
 
 .definition__header {
   position: relative;
@@ -130,7 +133,7 @@
 .interview {
   position: relative;
   border: 1px solid #ddd;
-  margin: 66px 0 1.5em;
+  margin: 5em 0 2.5em;
   padding: 60px 0 0 0; }
 
 .interview__picture {
@@ -247,7 +250,7 @@
 .interview__meta a {
   font-weight: 400; }
 .link {
-  margin: 1.5em 0;
+  margin: 2.5em 0;
   border: 1px solid #ddd; }
 
 .link__content {
