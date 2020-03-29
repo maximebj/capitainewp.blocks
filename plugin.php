@@ -16,6 +16,8 @@ defined( 'ABSPATH' ) || exit;
 
 class Blocks {
 
+  public $version = '1.3';
+
 	public function register_hooks() {
     add_action( 'init', [ $this, 'register_render'] );
     add_action( 'init', [ $this, 'register_assets' ] );
@@ -30,7 +32,7 @@ class Blocks {
       'capitainewp-blocs',
       plugins_url( 'dist/blocks.style.build.css' , __FILE__ ),
       is_admin() ? [ 'wp-editor' ] : null,
-      '1.1'
+      $this->version
     );
 
     // Blocks scripts (Editor)
@@ -38,7 +40,7 @@ class Blocks {
       'capitainewp-blocs',
       plugins_url( 'dist/blocks.build.js', __FILE__ ),
       [ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
-      '1.1',
+      $this->version,
       true
     );
 
@@ -47,7 +49,7 @@ class Blocks {
       'capitainewp-blocs-editor',
       plugins_url( 'dist/blocks.editor.build.css', __FILE__ ),
       [ 'wp-edit-blocks' ],
-      '1.1'
+      $this->version
     );
 
     // Register block to load assets
