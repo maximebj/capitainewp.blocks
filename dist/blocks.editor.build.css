@@ -65,6 +65,9 @@
   margin-right: 5px; }
 .editor-styles-wrapper .wp-block-captainwp-aparte {
   margin: 0; }
+  .editor-styles-wrapper .wp-block-captainwp-aparte a {
+    color: white;
+    text-decoration: underline; }
   .editor-styles-wrapper .wp-block-captainwp-aparte .aparte__title {
     font-size: 1.2em;
     margin-top: 0; }

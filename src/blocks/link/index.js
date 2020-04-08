@@ -5,6 +5,7 @@ import Inspector from './inspect'
 
 const { registerBlockType } = wp.blocks
 const { RichText } = wp.blockEditor
+const { TextControl } = wp.components
 const { Fragment } = wp.element
 
 export default registerBlockType(
@@ -39,12 +40,12 @@ export default registerBlockType(
         source: 'attribute',
         selector: '.link__favicon',
         attribute: 'src',
-        default: 'http://capitainewp.local/wp-content/themes/captain/img/favicon.png'
+        default: 'http://capitainewp.io/wp-content/themes/captain/img/favicon.png'
       }
     },
     edit: props => {
 
-      const { attributes: { title, description, url, label, favicon }, setAttributes} = props
+      const { attributes: { title, description, url, label, favicon }, setAttributes, isSelected} = props
 
       return (
         <Fragment>
@@ -84,14 +85,18 @@ export default registerBlockType(
             </div>
 
             <div class="link__meta">
-              <RichText
-                tagName="span"
-                value={ url }
-                className="link__url"
-                onChange={ url => setAttributes( { url } ) }
-                placeholder="https://capitainewp.io"
-                format="string"
-              />
+              {isSelected ? (
+                <TextControl
+                  tagName="span"
+                  value={url}
+                  className="link__url"
+                  onChange={url => setAttributes({ url })}
+                  placeholder="https://capitainewp.io"
+                  format="string"
+                />
+              ) : (
+                <span>{url}</span>  
+              ) }
             </div>
           </div>
         </Fragment>

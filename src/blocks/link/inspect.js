@@ -16,7 +16,6 @@ export default class Inspector extends Component {
         <PanelBody title="Choix du Favicon">
 
           <TextControl
-            placeholder='http://capitainewp.local/wp-content/themes/captain/img/favicon.png'
             value={ favicon }
             onChange={ favicon => setAttributes( { favicon } ) }
           />
