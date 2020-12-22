@@ -54,7 +54,7 @@ export default registerBlockType(
       return (
         <Fragment>
           <Inspector { ...{ url, isBlank, buttonClass, hasIcon, setAttributes } } />
-  
+
           <p className="wp-block-captainwp-button">
             <div className={ classnames( 'editor-button', `button--${buttonClass}`) }>
               { hasIcon && (
@@ -80,7 +80,6 @@ export default registerBlockType(
           <a
             href={ url }
             target={isBlank && '_blank'}
-            rel={isBlank && 'noopener noreferrer'}
             className={ classnames( 'button', `button--${buttonClass}` ) }
             data-type={ buttonClass }
           >
