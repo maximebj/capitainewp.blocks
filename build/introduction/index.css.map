@@ -1,0 +1,1 @@
+{"version":3,"file":"introduction/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://capitainewp-blocks/./src/introduction/editor.scss"],"sourcesContent":[".wp-block-capitainewp-introduction p {\n\tfont-size: 19.8px !important;\n}\n"],"names":[],"sourceRoot":""}

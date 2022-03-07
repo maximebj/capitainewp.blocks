@@ -23,8 +23,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Edit() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Capitainewp Blocks – hello from the editor!', 'capitainewp-blocks'));
+function Edit(props) {
+  const {
+    attributes: {
+      content
+    },
+    setAttributes
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "p",
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Texte d’introduction', 'advanced-gutenberg-blocks'),
+    value: content,
+    onChange: content => setAttributes({
+      content
+    })
+  }));
 }
 
 /***/ }),
@@ -46,8 +59,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('capitainewp/introduction', {
+  attributes: {
+    content: {
+      type: 'array',
+      source: 'children',
+      selector: 'p'
+    }
+  },
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
+  useOnce: true,
+  transforms: {
+    from: [{
+      type: 'block',
+      blocks: ['core/paragraph'],
+      transform: function (attributes) {
+        return createBlock('capitainewp/introduction', {
+          content: attributes.content
+        });
+      }
+    }],
+    to: [{
+      type: 'block',
+      blocks: ['core/paragraph'],
+      transform: function (attributes) {
+        return createBlock('core/paragraph', {
+          content: attributes.content
+        });
+      }
+    }]
+  }
 });
 
 /***/ }),
@@ -71,8 +112,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Save() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Capitainewp Blocks – hello from the saved content!', 'capitainewp-blocks'));
+function Save(props) {
+  const {
+    content
+  } = props.attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, content));
 }
 
 /***/ }),

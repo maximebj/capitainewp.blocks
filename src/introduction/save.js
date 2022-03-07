@@ -1,13 +1,13 @@
 import { __ } from '@wordpress/i18n'
 import { useBlockProps } from '@wordpress/block-editor'
 
-export default function Save() {
+export default function Save( props ) {
+
+	const { content } = props.attributes
+
 	return (
-		<p {...useBlockProps.save()}>
-			{__(
-				'Capitainewp Blocks – hello from the saved content!',
-				'capitainewp-blocks'
-			)}
-		</p>
+		<div {...useBlockProps.save()}>
+			<p>{ content }</p>
+		</div>
 	)
 }
