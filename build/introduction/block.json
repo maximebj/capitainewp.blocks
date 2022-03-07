@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "capitainewp/intro",
+	"name": "capitainewp/introduction",
 	"version": "1.0",
 	"title": "Introduction",
 	"category": "capitainewp",

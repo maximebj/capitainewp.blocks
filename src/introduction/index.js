@@ -5,7 +5,7 @@ import './style.scss'
 import Edit from './edit'
 import Save from './save'
 
-registerBlockType('capitainewp/intro', {
+registerBlockType('capitainewp/introduction', {
 	edit: Edit,
 	save: Save,
 })

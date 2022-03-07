@@ -13,32 +13,41 @@
  * @package           create-block
  */
 
+defined( 'ABSPATH' ) || exit;
 
-function create_block_capitainewp_blocks_block_init(): void
+class CapitaineWPBlocks
 {
+	public function run()
+	{
+		# Load Files
+		require_once __DIR__ . '/inc/Constant.php';
+		require_once __DIR__ . '/inc/Editor.php';
 
-	# Register blocks
-	register_block_type( __DIR__ . '/build/alert' );
-	register_block_type( __DIR__ . '/build/aparte' );
-	register_block_type( __DIR__ . '/build/button' );
-	register_block_type( __DIR__ . '/build/definition' );
-	register_block_type( __DIR__ . '/build/fact' );
-	register_block_type( __DIR__ . '/build/interview' );
-	register_block_type( __DIR__ . '/build/intro' );
-	register_block_type( __DIR__ . '/build/link' );
-	register_block_type( __DIR__ . '/build/plugin' );
-	register_block_type( __DIR__ . '/build/table-of-contents' );
+		require_once __DIR__ . '/inc/Blocks/Alert.php';
+		require_once __DIR__ . '/inc/Blocks/Aparte.php';
+		require_once __DIR__ . '/inc/Blocks/Button.php';
+		require_once __DIR__ . '/inc/Blocks/Definition.php';
+		require_once __DIR__ . '/inc/Blocks/Fact.php';
+		require_once __DIR__ . '/inc/Blocks/Interview.php';
+		require_once __DIR__ . '/inc/Blocks/Introduction.php';
+		require_once __DIR__ . '/inc/Blocks/Link.php';
+		require_once __DIR__ . '/inc/Blocks/Plugin.php';
+		require_once __DIR__ . '/inc/Blocks/TableOfContents.php';
+
+		# Init Classes
+		(new CapitaineWPBlocks\Editor)->registerHooks();
+
+		(new CapitaineWPBlocks\Blocks\Alert)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Aparte)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Button)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Definition)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Fact)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Interview)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Introduction)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Link)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Plugin)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\TableOfContents)->registerHooks();
+	}
 }
-add_action( 'init', 'create_block_capitainewp_blocks_block_init' );
 
-
-function wholesomecode_wholesome_plugin_block_categories( $categories ): array
-{
-	$categories[] = [
-		'slug' => 'capitainewp',
-		'title' => 'Capitaine WP',
-	];
-
-	return $categories;
-}
-add_filter( 'block_categories_all', 'wholesomecode_wholesome_plugin_block_categories', 10, 2 );
+(new CapitaineWPBlocks)->run();
