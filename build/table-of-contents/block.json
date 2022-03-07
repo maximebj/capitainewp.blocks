@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "capitainewp/table-of-contents",
+	"version": "1.0",
+	"title": "Sommaire",
+	"category": "capitainewp",
+	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "list-view" },
+	"description": "Un sommaire généré automatiquement à partir des titres.",
+	"keywords": [ "table des matières", "sommaire" ],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "capitainewp-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
