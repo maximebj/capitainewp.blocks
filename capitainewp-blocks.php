@@ -20,19 +20,19 @@ class CapitaineWPBlocks
 	public function run()
 	{
 		# Load Files
-		require_once __DIR__ . '/inc/Constant.php';
-		require_once __DIR__ . '/inc/Editor.php';
+		require_once __DIR__ . '/classes/Constant.php';
+		require_once __DIR__ . '/classes/Editor.php';
 
-		require_once __DIR__ . '/inc/Blocks/Alert.php';
-		require_once __DIR__ . '/inc/Blocks/Aparte.php';
-		require_once __DIR__ . '/inc/Blocks/Button.php';
-		require_once __DIR__ . '/inc/Blocks/Definition.php';
-		require_once __DIR__ . '/inc/Blocks/Fact.php';
-		require_once __DIR__ . '/inc/Blocks/Interview.php';
-		require_once __DIR__ . '/inc/Blocks/Introduction.php';
-		require_once __DIR__ . '/inc/Blocks/Link.php';
-		require_once __DIR__ . '/inc/Blocks/Plugin.php';
-		require_once __DIR__ . '/inc/Blocks/TableOfContents.php';
+		require_once __DIR__ . '/classes/Blocks/Alert.php';
+		require_once __DIR__ . '/classes/Blocks/Aparte.php';
+		require_once __DIR__ . '/classes/Blocks/Button.php';
+		require_once __DIR__ . '/classes/Blocks/Definition.php';
+		require_once __DIR__ . '/classes/Blocks/Fact.php';
+		require_once __DIR__ . '/classes/Blocks/Interview.php';
+		require_once __DIR__ . '/classes/Blocks/Introduction.php';
+		require_once __DIR__ . '/classes/Blocks/Link.php';
+		require_once __DIR__ . '/classes/Blocks/Plugin.php';
+		require_once __DIR__ . '/classes/Blocks/TableOfContents.php';
 
 		# Init Classes
 		(new CapitaineWPBlocks\Editor)->registerHooks();
