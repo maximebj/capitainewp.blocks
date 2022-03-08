@@ -18,6 +18,7 @@
 		"@wordpress/scripts": "^22.1.0"
 	},
 	"dependencies": {
-		"classnames": "^2.3.1"
+		"classnames": "^2.3.1",
+		"throttle-debounce": "^3.0.1"
 	}
 }

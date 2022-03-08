@@ -6,13 +6,15 @@ import './style.scss'
 
 export default function IconList( props ) {
 
+	const { onChange } = props
+
 	return (
 		<div class="capitainewp-icons">
 			{ dashIconList.map( icon => {
 				return (
 					<span
 						className={ classnames('dashicons', `dashicons-${icon}`) }
-						onClick={ () => props.onChange( icon ) }
+						onClick={ () => onChange( icon ) }
 					>
 					</span>
 				)

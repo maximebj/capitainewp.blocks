@@ -1,6 +1,8 @@
 import { InspectorControls } from '@wordpress/block-editor'
 import { PanelBody } from '@wordpress/components'
 
+import SearchPost from '../../components/searchpost'
+
 export default function Inspector( props ) {
 
 	const { setAttributes } = props
@@ -9,13 +11,11 @@ export default function Inspector( props ) {
 		<InspectorControls>
 
 			<PanelBody title="Choix de la définition">
-				COUCOU
-				{/* <SearchPost
+				<SearchPost
 					onChange={ definitionID => setAttributes( { definitionID } ) }
-					type="definitions"
+					postType="definitions"
 					placeholder="Chercher une définition"
-				/> */}
-
+				/>
 			</PanelBody>
 
 		</InspectorControls>
