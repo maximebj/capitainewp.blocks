@@ -8,7 +8,8 @@
 	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "flag" },
 	"description": "Affiche un contenu en aparté dans un bloc bleu.",
 	"supports": {
-		"html": false
+		"html": false,
+  	"align": true
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

@@ -8,7 +8,8 @@
 	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "book-alt" },
 	"description": "Affiche une définition.",
 	"supports": {
-		"html": false
+		"html": false,
+  	"align": true
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

@@ -8,7 +8,8 @@
 	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "editor-textcolor" },
 	"description": "Paragraphe d'introduction mis en exergue.",
 	"supports": {
-		"html": false
+		"html": false,
+  	"align": true
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

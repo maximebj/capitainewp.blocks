@@ -9,7 +9,8 @@
 	"description": "Un sommaire généré automatiquement à partir des titres.",
 	"keywords": [ "table des matières", "sommaire" ],
 	"supports": {
-		"html": false
+		"html": false,
+  	"align": true
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

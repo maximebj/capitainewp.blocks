@@ -3,7 +3,7 @@ import { useBlockProps } from '@wordpress/block-editor'
 
 import './editor.scss'
 
-export default function Edit() {
+export default function Edit( props ) {
 	return (
 		<p {...useBlockProps()}>
 			{__(
