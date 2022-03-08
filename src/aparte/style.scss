@@ -1,0 +1,30 @@
+@import '../vars.scss';
+
+.wp-block-capitainewp-aparte {
+  background: $color-1;
+  padding: $pad-s;
+  border-radius: $radius;
+  margin: $content-margin 0;
+}
+
+.wp-block-capitainewp-aparte__title {
+  font-size: 1.2em;
+  font-family: $title-font;
+  color: white;
+}
+
+.wp-block-capitainewp-aparte__content {
+	a {
+  	color: white;
+  	text-decoration: underline;
+	}
+
+	p {
+		color: white;
+		margin: 1.5em 0;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}

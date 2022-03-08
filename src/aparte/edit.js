@@ -1,15 +1,28 @@
-import { __ } from '@wordpress/i18n'
-import { useBlockProps } from '@wordpress/block-editor'
+import { useBlockProps, RichText } from '@wordpress/block-editor'
 
 import './editor.scss'
 
 export default function Edit( props ) {
+
+	const { attributes: { title, content }, setAttributes } = props
+
 	return (
-		<p {...useBlockProps()}>
-			{__(
-				'Capitainewp Blocks – hello from the editor!',
-				'capitainewp-blocks'
-			)}
-		</p>
+		<div {...useBlockProps()}>
+			<RichText
+				tagName="p"
+				value={ title }
+				className='wp-block-capitainewp-aparte__title'
+				onChange={ title => setAttributes( { title } ) }
+			/>
+
+			<RichText
+				tagName="div"
+				multiline="p"
+				placeholder="Contenu de l'apparté"
+				value={ content }
+				className='wp-block-capitainewp-aparte__content'
+				onChange={ content => setAttributes( { content } ) }
+			/>
+		</div>
 	)
 }
