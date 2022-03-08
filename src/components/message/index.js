@@ -1,4 +1,4 @@
-import '../styles/custom.scss'
+import './style.scss'
 
 export default function Message( props ) {
 

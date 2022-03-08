@@ -1,5 +1,8 @@
 import classnames from 'classnames'
+
 import dashIconList from './dashicons'
+
+import './style.scss'
 
 export default function IconList( props ) {
 

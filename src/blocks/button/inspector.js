@@ -1,7 +1,7 @@
 import { InspectorControls } from '@wordpress/block-editor'
 import { PanelBody, ToggleControl, TextControl, ColorPalette } from '@wordpress/components'
 
-import IconList from './iconlist'
+import IconList from '../../components/iconlist'
 
 export default function Inspector( props ) {
 

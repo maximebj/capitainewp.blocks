@@ -1,11 +1,3 @@
-// Default Placeholder message
-.capitainewp-message {
-	text-align: center;
-	font-style: italic;
-	color: #ccc;
-}
-
-
 // Components Panel
 .capitainewp-results {
   p {
@@ -41,22 +33,4 @@
     width: 32px;
     height: 32px;
 	}
-}
-
-
-// Icons list
-.capitainewp-icons {
-  display: flex;
-  flex-wrap: wrap;
-
-  span {
-    flex: 1;
-    margin: 3px 2px;
-    cursor: pointer;
-    transition: .2s color;
-
-    &:hover {
-      color: #12A0D2;
-    }
-  }
 }
