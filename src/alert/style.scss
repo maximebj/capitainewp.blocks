@@ -1,7 +1,7 @@
-@import '../vars';
+@import '../vars.scss';
 
 .wp-block-capitainewp-alert {
-	margin: $content-margin;
+	margin: $content-margin 0;
   padding: $pad-xs;
   border-radius: $radius;
 }

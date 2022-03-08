@@ -1,0 +1,41 @@
+@import '../vars.scss';
+
+.wp-block-capitainewp-fact__container {
+	position: relative;
+
+	&:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 70px;
+    top: 40px;
+    width: 0;
+    height: 0;
+    border-right: 20px solid $color-neutral-light;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 0 solid transparent;
+  }
+}
+
+.wp-block-capitainewp-fact__content {
+	margin: $content-margin 0 $content-margin 90px;
+  font-size: .9em;
+  padding: $pad-s;
+  border-radius: $radius;
+  background: $color-neutral-light;
+}
+
+.wp-block-capitainewp-fact__title {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.wp-block-capitainewp-fact__picture {
+  display: block;
+  width: 60px;
+  position: absolute;
+  top: 30px;
+  left: 0;
+}
