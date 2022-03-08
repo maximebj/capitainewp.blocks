@@ -1,0 +1,70 @@
+@import '../vars.scss';
+
+.wp-block-capitainewp-button {
+
+  .editor-button {
+    display: inline-flex;
+    border: none;
+    padding: .6em 1.2em;
+    -webkit-appearance: none;
+    color: white;
+    border-radius: 2px;
+    transition: all $transition-speed ease-in-out;
+
+    .dashicons {
+      transform: translateY(7px);
+      margin-right: 6px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      color: white;
+    }
+
+    .editor-rich-text {
+      min-width: 50px;
+    }
+  }
+
+	.button--main {
+    background: $color-1;
+
+    &:hover {
+      background: $color-1-hov;
+    }
+  }
+
+  .button--premium {
+    background: $color-2;
+
+    &:hover {
+      background: $color-2-hov;
+    }
+  }
+
+  .button--start {
+    background: $color-3;
+
+    &:hover {
+      background: $color-3-hov;
+    }
+  }
+
+  .button--gold {
+    background: $color-4;
+
+    &:hover {
+      background: $color-4-hov;
+    }
+  }
+
+	.button--soft {
+    background: $color-neutral-dark;
+    color: $text-alt;
+
+    &:hover {
+      color: $text-alt;
+      background: darken($color-neutral-dark, 10%);
+    }
+  }
+}

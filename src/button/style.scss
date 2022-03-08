@@ -1,0 +1,9 @@
+@import '../vars.scss';
+
+.wp-block-capitainewp-button {
+  text-align: center;
+}
+
+.wp-content p.wp-block-capitainewp-button {
+  margin: $content-margin 0;
+}

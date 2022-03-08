@@ -11,7 +11,7 @@
     top: 40px;
     width: 0;
     height: 0;
-    border-right: 20px solid $color-neutral-light;
+    border-right: 20px solid $color-neutral;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     border-left: 0 solid transparent;
@@ -23,7 +23,7 @@
   font-size: .9em;
   padding: $pad-s;
   border-radius: $radius;
-  background: $color-neutral-light;
+  background: $color-neutral;
 }
 
 .wp-block-capitainewp-fact__title {
