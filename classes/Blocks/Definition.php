@@ -28,6 +28,6 @@ class Definition
 	 */
 	public function registerBlock(): void
 	{
-		register_block_type( Constant::path() . "build/" . self::SLUG );
+		register_block_type( Constant::path() . "build/blocks/" . self::SLUG );
 	}
 }
