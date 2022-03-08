@@ -1,9 +1,9 @@
-@import 'vars';
+@import '../vars';
 
 .wp-block-capitainewp-alert {
-	margin: 2em 0;
-  padding: 12px;
-  border-radius: 4px;
+	margin: $content-margin;
+  padding: $pad-xs;
+  border-radius: $radius;
 }
 
 .wp-block-capitainewp-alert__title {
