@@ -29,7 +29,7 @@ class Editor
 			'wp-block-editor',
 			'CapitaineWPBlocks',
 			[
-				// TODO
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			],
 		);
 	}
