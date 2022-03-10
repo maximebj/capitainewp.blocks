@@ -9,10 +9,10 @@ $color-2: #FF2952;
 $color-3: #83BD71;
 $color-4: #FFC334;
 
-$color-1-hov: darken($color-1, 20%);
-$color-2-hov: darken($color-2, 20%);
-$color-3-hov: darken($color-3, 20%);
-$color-4-hov: darken($color-4, 20%);
+$color-1-hover: darken($color-1, 20%);
+$color-2-hover: darken($color-2, 20%);
+$color-3-hover: darken($color-3, 20%);
+$color-4-hover: darken($color-4, 20%);
 
 $color-advice: #83BD71;
 $color-avoid: #B54D4D;
@@ -20,7 +20,6 @@ $color-warning: #FFC334;
 $color-info: #48ADD8;
 
 $color-neutral: #f8f8f8;
-$color-neutral-alt: #f1f1f1;
 $color-neutral-dark: #ddd;
 
 $text-color: #202020;

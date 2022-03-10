@@ -9,13 +9,13 @@ import './style.scss'
 export default function SearchPost( props ) {
 
 	const { postType, placeholder, onChange } = props
-	const [ results, setResults ] = useState(false);
+	const [ results, setResults ] = useState( false );
 
   const onSearch = debounce( 300, search => {
 
     if( search.length < 3 ) { return }
 
-		setResults( "Chargement..." )
+		setResults( "Chargement…" )
 
 		apiFetch( { path: `/wp/v2/${postType}/?search=${encodeURI( search )}&per_page=20` } )
 		.then( ( posts ) => {
@@ -36,7 +36,7 @@ export default function SearchPost( props ) {
 			/>
 
 			<div className="capitainewp-results">
-				{ !! results && Array.isArray(results) ?
+				{ results && Array.isArray(results) ?
 					(
 						<ul>
 							{ results.map( result => {

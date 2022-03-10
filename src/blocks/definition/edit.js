@@ -1,4 +1,3 @@
-import { useBlockProps } from '@wordpress/block-editor'
 import { Fragment } from '@wordpress/element'
 
 import Inspector from './inspector'
@@ -18,11 +17,9 @@ export default function Edit( props ) {
 			{ definitionID ? (
 				<Block { ...{ definitionID } } />
 			) : (
-				<div {...useBlockProps()}>
-					<Message
-						label="Choisissez une définition dans l'inspecteur →"
-					/>
-				</div>
+				<Message
+					label="Choisissez une définition dans l'inspecteur →"
+				/>
 			) }
 		</Fragment>
 	)

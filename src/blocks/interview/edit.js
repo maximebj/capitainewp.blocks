@@ -1,4 +1,3 @@
-import { useBlockProps } from '@wordpress/block-editor'
 import { Fragment } from '@wordpress/element'
 
 import Inspector from './inspector'
@@ -19,11 +18,9 @@ export default function Edit( props ) {
 			{ peopleID ? (
 				<Block { ...{ attributes, setAttributes } } />
 			) : (
-				<div {...useBlockProps()}>
-					<Message
-						label="Recherchez une personne dans l'inspecteur →"
-					/>
-				</div>
+				<Message
+					label="Recherchez une personne dans l'inspecteur →"
+				/>
 			) }
 		</Fragment>
 	)

@@ -1,5 +1,9 @@
+@import '../../styles/vars.scss';
+
 .capitainewp-message {
+	border: 1px solid $color-neutral-dark;
 	text-align: center;
 	font-style: italic;
-	color: #ccc;
+	color: #bbb;
+	padding: $pad-s;
 }
