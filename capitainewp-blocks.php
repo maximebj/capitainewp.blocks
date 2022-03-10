@@ -22,6 +22,7 @@ class CapitaineWPBlocks
 		# Load Files
 		require_once __DIR__ . '/classes/Constant.php';
 		require_once __DIR__ . '/classes/Editor.php';
+		require_once __DIR__ . '/classes/Front.php';
 
 		require_once __DIR__ . '/classes/Blocks/Alert.php';
 		require_once __DIR__ . '/classes/Blocks/Aparte.php';
@@ -36,6 +37,7 @@ class CapitaineWPBlocks
 
 		# Init Classes
 		(new CapitaineWPBlocks\Editor)->registerHooks();
+		(new CapitaineWPBlocks\Front)->registerHooks();
 
 		(new CapitaineWPBlocks\Blocks\Alert)->registerHooks();
 		(new CapitaineWPBlocks\Blocks\Aparte)->registerHooks();

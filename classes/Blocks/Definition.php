@@ -3,6 +3,7 @@
 namespace CapitaineWPBlocks\Blocks;
 
 use CapitaineWPBlocks\Constant;
+use Timber\Timber;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -28,6 +29,33 @@ class Definition
 	 */
 	public function registerBlock(): void
 	{
-		register_block_type( Constant::path() . "build/blocks/" . self::SLUG );
+		register_block_type(
+			Constant::path() . "build/blocks/" . self::SLUG ,
+			[
+				'render_callback' => [ $this, 'renderBlock' ]
+			]
+		);
+	}
+
+
+	/**
+   * Render Block in frontend
+	 *
+	 * @param array $attributes
+	 *
+	 * @return string The rendered block in HTML
+	 */
+	public function renderBlock( $attributes ): string
+	{
+		$post_id = $attributes['definitionID'] ?? null;
+
+		if( is_null( $post_id ) ) { return ''; }
+
+		$data = [
+			'definition' 		=> Timber::get_post( $post_id ),
+			'currentLesson' => get_the_id(),
+		];
+
+		return Timber::compile( 'definition.twig', $data );
 	}
 }

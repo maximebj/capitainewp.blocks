@@ -60,10 +60,10 @@
 
 	.button--soft {
     background: $color-neutral-dark;
-    color: $text-alt;
+    color: $text-color-alt;
 
     &:hover {
-      color: $text-alt;
+      color: $text-color-alt;
       background: darken($color-neutral-dark, 10%);
     }
   }
