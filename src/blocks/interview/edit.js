@@ -10,7 +10,7 @@ import './editor.scss'
 export default function Edit( props ) {
 
 	const { attributes, setAttributes } = props
-  const { peopleID, content } = attributes
+  const { peopleID } = attributes
 
 	return (
 		<Fragment>
