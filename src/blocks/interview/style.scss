@@ -1,0 +1,153 @@
+@import '../../styles/vars.scss';
+
+.wp-block-capitainewp-interview {
+  position: relative;
+  border: 1px solid #ddd;
+  margin: 5em 0 $content-margin;
+  padding: 60px 0 0 0;
+}
+
+.wp-block-capitainewp-interview__picture {
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+}
+
+.wp-block-capitainewp-interview__picture img {
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+  .wp-block-capitainewp-interview__awards {
+    text-align: center;
+  }
+}
+
+.wp-block-capitainewp-interview__award {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: #fff;
+  color: $text-color-alt;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .wp-block-capitainewp-interview__award {
+    position: absolute;
+    padding: 3px 9px;
+    font-size: 0.75em;
+    top: -13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wp-block-capitainewp-interview__award {
+    display: inline-block;
+    margin-bottom: 4px;
+    padding: 2px 5px;
+    font-size: 0.65em;
+    top: 70px;
+  }
+}
+
+.wp-block-capitainewp-interview__award span {
+  color: $color-4;
+  margin-right: 3px;
+}
+
+@media (min-width: 768px) {
+  .wp-block-capitainewp-interview__award span {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 767px) {
+  .wp-block-capitainewp-interview__award span {
+    font-size: 1.2em;
+    width: 12px;
+    height: 12px;
+    transform: translateY(1px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .wp-block-capitainewp-interview__award--left {
+    right: calc(50% + 120px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .wp-block-capitainewp-interview__award--left {
+    right: calc(50% + 70px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .wp-block-capitainewp-interview__award--right {
+    left: calc(50% + 120px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .wp-block-capitainewp-interview__award--right {
+    left: calc(50% + 70px);
+  }
+}
+
+.wp-block-capitainewp-interview__title {
+  text-align: center;
+  color: $color-1;
+  font-size: 1.2em;
+}
+
+@media (max-width: 767px) {
+  .wp-block-capitainewp-interview__title {
+    margin-top: 56px;
+  }
+}
+
+.wp-block-capitainewp-interview__title span {
+  text-transform: uppercase;
+}
+
+.wp-block-capitainewp-interview__work {
+  text-align: center;
+  color: $text-color-alt;
+  font-weight: 300;
+}
+
+.wp-block-capitainewp-interview__work:after {
+  margin: 20px auto 0;
+  content: "";
+  display: block;
+  width: 120px;
+  border-top: 1px solid #ddd;
+}
+
+.wp-block-capitainewp-interview__desc {
+  padding: 12px;
+  font-size: 0.9em;
+}
+
+.wp-block-capitainewp-interview__meta {
+  padding: 12px 20px;
+  color: #747680;
+  font-size: 0.8em;
+  font-weight: 300;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd;
+}
+
+@media (min-width: 768px) {
+  .wp-block-capitainewp-interview__meta {
+    text-align: right;
+  }
+}
+
+.wp-block-capitainewp-interview__meta a {
+  font-weight: 400;
+}
