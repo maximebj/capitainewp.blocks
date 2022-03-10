@@ -1,4 +1,4 @@
-<div class="wp-block-capitainewp-definition">
+<div class="wp-block-capitainewp-definition{{customClass}}">
   <header class="wp-block-capitainewp-definition__header">
     {% if definition.lesson and definition.lesson != currentLesson %}
     	<a href="{{ function( 'get_permalink' , definition.lesson) }}" target="_blank" class="wp-block-capitainewp-definition__button button button--main">Cours dédié</a>
@@ -13,10 +13,10 @@
   {% if definition.translation or definition.abbreviation %}
   <div class="wp-block-capitainewp-definition__meta">
     {% if definition.translation %}
-    <p>Traduction : <strong>{{definition.translation}}</strong></p>
+    	<p>Traduction : <strong>{{definition.translation}}</strong></p>
     {% endif %}
     {% if definition.abbreviation %}
-    <p>Abréviation : <strong>{{definition.abbreviation}}</strong></p>
+    	<p>Abréviation : <strong>{{definition.abbreviation}}</strong></p>
     {% endif %}
   </div>
   {% endif %}

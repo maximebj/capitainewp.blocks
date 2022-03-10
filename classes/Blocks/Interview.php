@@ -49,6 +49,7 @@ class Interview
 	{
 		$post_id = $attributes['peopleID'] ?? null;
 		$content = $attributes['content'] ?? '';
+		$class = $attributes['className'] ?? '';
 
 		if( is_null( $post_id ) ) { return ''; }
 
@@ -59,9 +60,10 @@ class Interview
     $article = in_array( $first_letter, [ "a", "e", "i", "o", "u", "y" ] ) ? "d'" : "de ";
 
 		$data = [
-			'people'  => $people,
-			'content' => $content,
-			'article' => $article,
+			'people'  		=> $people,
+			'content' 		=> $content,
+			'article' 		=> $article,
+			'customClass'	=> empty( $class ) ? '' : ' ' . $class,
 		];
 
 		return Timber::compile( 'interview.twig', $data );

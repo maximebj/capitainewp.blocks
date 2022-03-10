@@ -48,12 +48,14 @@ class Definition
 	public function renderBlock( $attributes ): string
 	{
 		$post_id = $attributes['definitionID'] ?? null;
+		$class = $attributes['className'] ?? '';
 
 		if( is_null( $post_id ) ) { return ''; }
 
 		$data = [
 			'definition' 		=> Timber::get_post( $post_id ),
 			'currentLesson' => get_the_id(),
+			'customClass'		=> empty( $class ) ? '' : ' ' . $class,
 		];
 
 		return Timber::compile( 'definition.twig', $data );
