@@ -4,6 +4,11 @@
 	margin: $content-margin 0;
   padding: $pad-xs;
   border-radius: $radius;
+
+	a {
+		color: white;
+		text-decoration: underline;
+	}
 }
 
 .wp-block-capitainewp-alert__title {

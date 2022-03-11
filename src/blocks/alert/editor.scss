@@ -3,11 +3,18 @@
 // Fix paragraphs
 .editor-styles-wrapper {
 	.wp-block-capitainewp-alert {
+
 		p {
 			margin: 0;
 		}
+
 		p.wp-block-capitainewp-alert__title {
 			margin: 5px 0;
+		}
+
+		a {
+			color: white;
+			text-decoration: underline;
 		}
 	}
 }
