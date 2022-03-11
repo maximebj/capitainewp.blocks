@@ -1,4 +1,4 @@
-import { registerBlockType } from '@wordpress/blocks'
+import { registerBlockType, createBlock } from '@wordpress/blocks'
 
 import Edit from './edit'
 import Save from './save'
