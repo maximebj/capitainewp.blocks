@@ -4,11 +4,6 @@
 	margin: $content-margin 0;
   padding: $pad-xs;
   border-radius: $radius;
-
-	a {
-		color: white;
-		text-decoration: underline;
-	}
 }
 
 .wp-block-capitainewp-alert__title {
@@ -28,6 +23,12 @@
     top: 20px;
     left: 20px;
   }
+}
+
+// Links
+.wp-block-capitainewp-alert:not(.is-style-line) a {
+	color: white;
+	text-decoration: underline;
 }
 
 // Advice variation
