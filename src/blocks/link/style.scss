@@ -6,7 +6,7 @@
 }
 
 .wp-block-capitainewp-link__content {
-  padding: $pad-xs;
+  padding: $pad-s;
 }
 
 .wp-block-capitainewp-link__favicon {
@@ -37,7 +37,8 @@
 }
 
 .wp-block-capitainewp-link__desc {
-  margin-top: 10px;
+  margin-top: $pad-xs;
+	padding-right: 160px;
   font-size: 0.85em;
   color: #333;
 }
