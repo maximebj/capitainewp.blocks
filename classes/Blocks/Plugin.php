@@ -211,7 +211,7 @@ class Plugin
 			return '1+ Million';
 		}
 		else if( $installs < 10 ) {
-			return 'moins de 10';
+			return 'Moins de 10';
 		}
 
 		return $installs . '+';

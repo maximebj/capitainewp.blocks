@@ -11,7 +11,7 @@ export default function Block( props ) {
 
   const getPlugin = () => {
 
-		fetch( advancedGutenbergBlocksGlobals.ajaxurl, {
+		fetch( CapitaineWPBlocks.ajaxurl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
