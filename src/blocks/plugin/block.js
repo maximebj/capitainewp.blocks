@@ -16,7 +16,7 @@ export default function Block( props ) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       },
-      body: 'action=get_plugin&slug=' + slug,
+      body: 'action=capitainewp_get_plugin&slug=' + slug,
       credentials: 'same-origin'
     } )
     .then( response => response.json() )

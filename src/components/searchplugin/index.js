@@ -21,7 +21,7 @@ export default function SearchPlugin( props ) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       },
-      body: 'action=search_plugins&search=' + encodeURIComponent( search ),
+      body: 'action=capitainewp_search_plugins&search=' + encodeURIComponent( search ),
       credentials: 'same-origin'
     } )
     .then( response => response.json() )

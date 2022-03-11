@@ -19,8 +19,8 @@ class Plugin
 	public function registerHooks(): void
 	{
 		add_action( 'init', [ $this, 'registerBlock' ] );
-		add_action( 'wp_ajax_search_plugins', [ $this, 'searchPlugins' ] );
-    add_action( 'wp_ajax_get_plugin', [ $this, 'getPlugin' ] );
+		add_action( 'wp_ajax_capitainewp_search_plugins', [ $this, 'searchPlugins' ] );
+    add_action( 'wp_ajax_capitainewp_get_plugin', [ $this, 'getPlugin' ] );
 	}
 
 
