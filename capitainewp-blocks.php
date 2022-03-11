@@ -3,7 +3,7 @@
  * Plugin Name:       Blocs Capitaine WP
  * Description:       Les blocs de Capitaine WP pour les cours et articles.
  * Requires at least: 5.9
- * Requires PHP:      8.0
+ * Requires PHP:      7.0
  * Version:           1.0
  * Author:            Maxime BJ • Capitaine WP
  * License:           GPL-2.0-or-later
