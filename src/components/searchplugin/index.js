@@ -26,11 +26,10 @@ export default function SearchPlugin( props ) {
     } )
     .then( response => response.json() )
     .then( response => {
-
-			if( response.info.results == 0 ) {
+			if( response.data.plugins.length == 0 ) {
 				setResults( 'Aucun résultat' )
       } else {
-        setResults( response.plugins )
+        setResults( response.data.plugins )
 			}
     } )
 		.catch( error => {

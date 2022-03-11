@@ -4,7 +4,6 @@
   position: relative;
   border: 1px solid #ddd;
   margin: 5em 0 $content-margin;
-  padding: 60px 0 0 0;
 }
 
 .wp-block-capitainewp-interview__picture {
@@ -100,6 +99,7 @@
 
 .wp-block-capitainewp-interview__title {
   text-align: center;
+	padding: 60px 0 0 0;
   color: $color-1;
   font-size: 1.2em;
 }

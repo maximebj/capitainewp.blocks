@@ -20,7 +20,7 @@ export default function Block( props ) {
       credentials: 'same-origin'
     } )
     .then( response => response.json() )
-    .then( plugin => setPlugin( plugin ) )
+    .then( response => setPlugin( response.data ) )
 	}
 
 	useEffect( () => getPlugin(), [ slug ] )
