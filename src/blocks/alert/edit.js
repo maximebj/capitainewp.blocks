@@ -33,7 +33,6 @@ export default function Edit( props ) {
 					value={ title }
 					className='wp-block-capitainewp-alert__title'
 					onChange={ title => setAttributes( { title } ) }
-					autofocus="false"
 				/>
 
 				<RichText
@@ -43,7 +42,6 @@ export default function Edit( props ) {
 					className='wp-block-capitainewp-alert__content'
 					onChange={ content => setAttributes( { content } ) }
 					keepPlaceholderOnFocus="true"
-					autoFocus="true"
 				/>
 			</div>
 
