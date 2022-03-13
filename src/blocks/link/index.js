@@ -30,7 +30,7 @@ registerBlockType('capitainewp/link', {
 			source: 'attribute',
 			selector: '.wp-block-capitainewp-link__favicon',
 			attribute: 'src',
-			default: 'http://capitainewp.io/wp-content/themes/captain/img/favicon.png'
+			default: 'https://s.w.org/favicon.ico'
 		}
 	},
 	edit: Edit,
