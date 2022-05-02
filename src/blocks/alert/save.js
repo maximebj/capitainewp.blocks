@@ -1,7 +1,5 @@
 import { useBlockProps } from '@wordpress/block-editor'
 
-import classnames from 'classnames'
-
 import icon from './icons'
 
 export default function Save( props ) {
@@ -9,7 +7,10 @@ export default function Save( props ) {
 	const { type, title, content, hasIcon } = props.attributes
 
 	const blockProps = useBlockProps.save( {
-		className: classnames( `is-variation-${ type }`, hasIcon && 'has-icon' ),
+		className: [
+			`is-variation-${type}`,
+			{ 'has-icon': hasIcon },
+		]
 	} )
 
 	return (

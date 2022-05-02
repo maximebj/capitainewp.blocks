@@ -1,6 +1,5 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor'
 import { Fragment } from '@wordpress/element'
-import classnames from 'classnames'
 
 import Inspector from './inspector'
 import Toolbar from './toolbar'
@@ -15,7 +14,10 @@ export default function Edit( props ) {
 	const { type, content, title, hasIcon } = attributes
 
 	const blockProps = useBlockProps( {
-		className: classnames( `is-variation-${type}`, hasIcon && 'has-icon' ),
+		className: [
+			`is-variation-${type}`,
+			{ 'has-icon': hasIcon },
+		]
 	} )
 
 	return (
