@@ -271,7 +271,7 @@ class Plugin
 				</svg>
 			";
 
-		} else if ( $type == "half" ) {
+		} else if( $type == "half" ) {
 			return "
 				<svg width='18px' height='18px'>
 					<g fill='#F5BC41'>
