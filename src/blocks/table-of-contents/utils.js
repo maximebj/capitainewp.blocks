@@ -5,7 +5,6 @@ export function getHeadingsFromContent(blocks) {
 	const headings = [];
 	blocks.map((block) => {
 		if (block.name === "core/heading" && block.attributes?.content.length > 0) {
-			console.log(block.attributes);
 			headings.push({
 				clientId: block.clientId,
 				level: block.attributes.level,
