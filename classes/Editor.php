@@ -2,24 +2,24 @@
 
 namespace CapitaineWPBlocks;
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 class Editor
 {
 	/**
-   * Registrer Hooks
+	 * Registrer Hooks
 	 *
 	 * @return void
 	 */
 	public function registerHooks(): void
 	{
-		add_action( 'enqueue_block_editor_assets', [ $this, 'sentDataToJS' ] );
-		add_filter( 'block_categories_all', [ $this, 'registerEditorCategory' ] );
+		add_action('enqueue_block_editor_assets', [$this, 'sentDataToJS']);
+		add_filter('block_categories_all', [$this, 'registerEditorCategory']);
 	}
 
 
 	/**
-   * Send data from PHP to JS
+	 * Send data from PHP to JS
 	 *
 	 * @return void
 	 */
@@ -29,24 +29,27 @@ class Editor
 			'wp-block-editor',
 			'CapitaineWPBlocks',
 			[
-				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'ajaxurl' => admin_url('admin-ajax.php'),
 			],
 		);
 	}
 
 
 	/**
-   * Register a new « Capitaine WP » category in editor
+	 * Register a new « Capitaine WP » category in editor
 	 *
 	 * @return void
 	 */
-	public function registerEditorCategory( $categories ): array
+	public function registerEditorCategory($categories): array
 	{
-		$categories[] = [
-			'slug' => 'capitainewp',
-			'title' => 'Capitaine WP',
+		$new_categories = [
+			[
+				'slug' => 'capitainewp',
+				'title' => 'Capitaine WP',
+				'icon' => null
+			]
 		];
 
-		return $categories;
+		return array_merge($new_categories, $categories);
 	}
 }

@@ -1,16 +1,11 @@
-import { registerBlockType } from '@wordpress/blocks'
+import { registerBlockType } from "@wordpress/blocks";
 
-import './style.scss'
+import "./style.scss";
 
-import Edit from './edit'
-import Save from './save'
+import Edit from "./edit";
+import Save from "./save";
 
-registerBlockType('capitainewp/definition', {
-	attributes: {
-		definitionID: {
-			type: 'integer',
-		},
-	},
+registerBlockType("capitainewp/definition", {
 	edit: Edit,
 	save: Save,
-})
+});

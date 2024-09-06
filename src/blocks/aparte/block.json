@@ -5,11 +5,23 @@
 	"version": "1.0",
 	"title": "Aparté",
 	"category": "capitainewp",
-	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "flag" },
+	"icon": { "foreground": "#83bd71", "src": "flag" },
 	"description": "Affiche un contenu en aparté dans un bloc bleu.",
 	"supports": {
 		"html": false,
-  	"align": true
+		"align": true
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"selector": ".wp-block-capitainewp-aparte__title",
+			"default": "Aparté: "
+		},
+		"content": {
+			"type": "array",
+			"source": "children",
+			"selector": ".wp-block-capitainewp-aparte__content"
+		}
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

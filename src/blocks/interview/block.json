@@ -5,11 +5,19 @@
 	"version": "1.0",
 	"title": "Interview",
 	"category": "capitainewp",
-	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "format-status" },
+	"icon": { "foreground": "#83bd71", "src": "format-status" },
 	"description": "Affiche le témoignage d'un membre de la communauté WordPress.",
 	"supports": {
 		"html": false,
-  	"align": true
+		"align": true
+	},
+	"attributes": {
+		"peopleID": {
+			"type": "integer"
+		},
+		"content": {
+			"type": "string"
+		}
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

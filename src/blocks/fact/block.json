@@ -5,12 +5,19 @@
 	"version": "1.0",
 	"title": "Fait",
 	"category": "capitainewp",
-	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "lightbulb" },
+	"icon": { "foreground": "#83bd71", "src": "lightbulb" },
 	"description": "Pour afficher une information factuelle.",
-	"keywords": [ "fait", "Le saviez-vous" ],
+	"keywords": ["fait", "Le saviez-vous"],
 	"supports": {
 		"html": false,
-  	"align": true
+		"align": true
+	},
+	"attributes": {
+		"content": {
+			"type": "array",
+			"source": "children",
+			"selector": ".wp-block-capitainewp-fact__desc"
+		}
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

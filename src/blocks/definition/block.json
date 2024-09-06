@@ -5,11 +5,16 @@
 	"version": "1.0",
 	"title": "Définition",
 	"category": "capitainewp",
-	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "book-alt" },
+	"icon": { "foreground": "#83bd71", "src": "book-alt" },
 	"description": "Affiche une définition.",
 	"supports": {
 		"html": false,
-  	"align": true
+		"align": true
+	},
+	"attributes": {
+		"definitionID": {
+			"type": "integer"
+		}
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",

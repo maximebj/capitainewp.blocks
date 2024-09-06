@@ -1,19 +1,11 @@
-import { registerBlockType } from '@wordpress/blocks'
+import { registerBlockType } from "@wordpress/blocks";
 
-import './style.scss'
+import "./style.scss";
 
-import Edit from './edit'
-import Save from './save'
+import Edit from "./edit";
+import Save from "./save";
 
-registerBlockType('capitainewp/interview', {
-	attributes: {
-		peopleID: {
-			type: 'integer',
-		},
-		content: {
-			type: 'string',
-		}
-	},
+registerBlockType("capitainewp/interview", {
 	edit: Edit,
 	save: Save,
-})
+});

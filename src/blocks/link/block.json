@@ -5,11 +5,41 @@
 	"version": "1.0",
 	"title": "Lien",
 	"category": "capitainewp",
-	"icon": { "background": "#83bd71", "foreground": "#FFFFFF", "src": "admin-links" },
+	"icon": { "foreground": "#83bd71", "src": "admin-links" },
 	"description": "Un lien avec aperçu vers un autre site.",
 	"supports": {
 		"html": false,
-  	"align": true
+		"align": true
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "text",
+			"selector": ".wp-block-capitainewp-link__site"
+		},
+		"description": {
+			"type": "array",
+			"source": "children",
+			"selector": ".wp-block-capitainewp-link__desc"
+		},
+		"url": {
+			"type": "string",
+			"source": "text",
+			"selector": ".wp-block-capitainewp-link__url"
+		},
+		"label": {
+			"type": "string",
+			"source": "text",
+			"selector": ".wp-block-capitainewp-link__button",
+			"default": "Voir le site"
+		},
+		"favicon": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".wp-block-capitainewp-link__favicon",
+			"attribute": "src",
+			"default": "https://s.w.org/favicon.ico"
+		}
 	},
 	"textdomain": "capitainewp-blocks",
 	"editorScript": "file:./index.js",
