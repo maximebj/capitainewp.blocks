@@ -40,20 +40,15 @@ export function buildHeadingHierarchy(headings) {
     const { clientId, ...headingWithoutClientId } = heading
     const { level } = heading
 
-    // Initialize the level in the map if it doesn't exist
-    if (!levelMap[level]) {
-      levelMap[level] = []
-    }
-
     // Add the heading to the current level
-    levelMap[level].push(headingWithoutClientId)
+    levelMap[level] = headingWithoutClientId
 
     // If the heading is not top level, find its parent
     if (level > 2) {
       const parentLevel = level - 1
 
       // Get the last heading of the parent level
-      const parent = levelMap[parentLevel]?.[levelMap[parentLevel].length - 1]
+      const parent = levelMap[parentLevel]
 
       if (parent) {
         // Initialize children array if it doesn't exist
