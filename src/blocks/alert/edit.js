@@ -1,52 +1,45 @@
-import { useBlockProps, RichText } from '@wordpress/block-editor'
-import { Fragment } from '@wordpress/element'
+import { useBlockProps, RichText } from "@wordpress/block-editor"
+import { Fragment } from "@wordpress/element"
 
-import Inspector from './inspector'
-import Toolbar from './toolbar'
+import Inspector from "./inspector"
+import Toolbar from "./toolbar"
 
-import icon from './icons'
+import icon from "./icons"
 
-import './editor.scss'
+import "./editor.scss"
 
-export default function Edit( props ) {
+export default function Edit(props) {
+  const { attributes, setAttributes } = props
+  const { type, content, title, hasIcon } = attributes
 
-	const { attributes, setAttributes } = props
-	const { type, content, title, hasIcon } = attributes
+  const blockProps = useBlockProps({
+    className: [`is-variation-${type}`, { "has-icon": hasIcon }],
+  })
 
-	const blockProps = useBlockProps( {
-		className: [
-			`is-variation-${type}`,
-			{ 'has-icon': hasIcon },
-		]
-	} )
+  return (
+    <Fragment>
+      <Inspector {...{ attributes, setAttributes }} />
+      <Toolbar {...{ attributes, setAttributes }} />
 
-	return (
-		<Fragment>
+      <div {...blockProps}>
+        {hasIcon && icon[type]}
 
-			<Inspector { ...{ attributes, setAttributes } } />
-			<Toolbar { ...{ attributes, setAttributes } } />
+        <RichText
+          tagName="p"
+          value={title}
+          className="wp-block-capitainewp-alert__title"
+          onChange={(title) => setAttributes({ title })}
+        />
 
-			<div {...blockProps}>
-
-				{ hasIcon && icon[type] }
-
-				<RichText
-					tagName="p"
-					value={ title }
-					className='wp-block-capitainewp-alert__title'
-					onChange={ title => setAttributes( { title } ) }
-				/>
-
-				<RichText
-					tagName="p"
-					placeholder={ 'Tapez votre contenu' }
-					value={ content }
-					className='wp-block-capitainewp-alert__content'
-					onChange={ content => setAttributes( { content } ) }
-					keepPlaceholderOnFocus="true"
-				/>
-			</div>
-
-		</Fragment>
-	)
+        <RichText
+          tagName="p"
+          placeholder={"Tapez votre contenu"}
+          value={content}
+          className="wp-block-capitainewp-alert__content"
+          onChange={(content) => setAttributes({ content })}
+          keepPlaceholderOnFocus="true"
+        />
+      </div>
+    </Fragment>
+  )
 }

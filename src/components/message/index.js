@@ -1,19 +1,18 @@
-import { useBlockProps } from '@wordpress/block-editor'
-import { Spinner } from '@wordpress/components'
-import './style.scss'
+import { useBlockProps } from "@wordpress/block-editor"
+import { Spinner } from "@wordpress/components"
+import "./style.scss"
 
-export default function Message( props ) {
+export default function Message(props) {
+  const { label, withSpinner } = props
 
-	const { label, withSpinner } = props
+  const blockProps = useBlockProps({
+    className: "capitainewp-message",
+  })
 
-	const blockProps = useBlockProps( {
-		className: 'capitainewp-message',
-	} )
-
-	return (
-		<p {...blockProps}>
-			{ withSpinner && <Spinner /> }
-			{ label }
-		</p>
-	)
+  return (
+    <p {...blockProps}>
+      {withSpinner && <Spinner />}
+      {label}
+    </p>
+  )
 }

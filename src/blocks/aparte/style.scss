@@ -1,4 +1,4 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .wp-block-capitainewp-aparte {
   background: $color-1;
@@ -14,17 +14,17 @@
 }
 
 .wp-block-capitainewp-aparte__content {
-	a {
-  	color: white;
-  	text-decoration: underline;
-	}
+  a {
+    color: white;
+    text-decoration: underline;
+  }
 
-	p {
-		color: white;
-		margin: 1.5em 0;
-	}
+  p {
+    color: white;
+    margin: 1.5em 0;
+  }
 
-	p:last-child {
-		margin-bottom: 0;
-	}
+  p:last-child {
+    margin-bottom: 0;
+  }
 }

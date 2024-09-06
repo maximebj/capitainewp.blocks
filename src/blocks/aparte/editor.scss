@@ -1,26 +1,26 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .wp-block-capitainewp-aparte {
-	box-sizing: border-box;
-	color: white;
+  box-sizing: border-box;
+  color: white;
 
-	.wp-block-capitainewp-aparte__title {
-		font-size: 21.6px;
-		margin-top: 0;
-	}
+  .wp-block-capitainewp-aparte__title {
+    font-size: 21.6px;
+    margin-top: 0;
+  }
 
-	.wp-block-capitainewp-aparte__content {
-		p {
-			margin: 1em 0;
+  .wp-block-capitainewp-aparte__content {
+    p {
+      margin: 1em 0;
 
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
-		a {
-			color: white;
-			text-decoration: underline;
-		}
-	}
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }

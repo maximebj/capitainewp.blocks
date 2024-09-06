@@ -2,13 +2,13 @@
   p {
     margin: 10px 0;
     text-align: center;
-	}
+  }
 
   ul {
     margin-top: 10px;
     list-style-type: none;
-    border: 1px solid #E3E4E7;
-	}
+    border: 1px solid #e3e4e7;
+  }
 
   li {
     overflow: auto;
@@ -16,19 +16,19 @@
     padding: 10px;
 
     &:not(:first-child) {
-      border-top: 1px solid #E3E4E7;
-		}
+      border-top: 1px solid #e3e4e7;
+    }
 
     &:hover {
       background: #efefef;
       cursor: pointer;
-		}
-	}
+    }
+  }
 
   img {
     float: left;
     margin-right: 4px;
     width: 32px;
     height: 32px;
-	}
+  }
 }

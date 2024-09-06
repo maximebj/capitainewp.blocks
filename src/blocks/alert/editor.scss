@@ -1,38 +1,38 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 // Fix paragraphs
 .editor-styles-wrapper {
-	.wp-block-capitainewp-alert {
-		box-sizing: border-box;
+  .wp-block-capitainewp-alert {
+    box-sizing: border-box;
 
-		p {
-			margin: 0;
-		}
+    p {
+      margin: 0;
+    }
 
-		p.wp-block-capitainewp-alert__title {
-			margin: 5px 0;
-		}
+    p.wp-block-capitainewp-alert__title {
+      margin: 5px 0;
+    }
 
-		&:not(.is-style-line) a {
-			color: white;
-			text-decoration: underline;
-		}
-	}
+    &:not(.is-style-line) a {
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }
 
 // Notice toolbar icons
 .capitainewp-toolbar-icon-advice {
-	color: $color-advice;
+  color: $color-advice;
 }
 
 .capitainewp-toolbar-icon-avoid {
-	color: $color-avoid;
+  color: $color-avoid;
 }
 
 .capitainewp-toolbar-icon-warning {
-	color: $color-warning;
+  color: $color-warning;
 }
 
 .capitainewp-toolbar-icon-info {
-	color: $color-info;
+  color: $color-info;
 }

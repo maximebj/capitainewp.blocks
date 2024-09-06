@@ -1,9 +1,9 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .wp-block-capitainewp-fact__container {
-	position: relative;
+  position: relative;
 
-	&:after {
+  &:after {
     content: "";
     display: block;
     position: absolute;
@@ -19,8 +19,8 @@
 }
 
 .wp-block-capitainewp-fact__content {
-	margin: $content-margin 0 $content-margin 90px;
-  font-size: .9em;
+  margin: $content-margin 0 $content-margin 90px;
+  font-size: 0.9em;
   padding: $pad-s;
   border-radius: $radius;
   background: $color-neutral;

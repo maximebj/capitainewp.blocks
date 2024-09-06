@@ -1,25 +1,25 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "capitainewp/introduction",
-	"version": "1.0",
-	"title": "Introduction",
-	"category": "capitainewp",
-	"icon": { "foreground": "#83bd71", "src": "editor-textcolor" },
-	"description": "Paragraphe d'introduction mis en exergue.",
-	"supports": {
-		"html": false,
-		"align": true
-	},
-	"attributes": {
-		"content": {
-			"type": "array",
-			"source": "children",
-			"selector": "p"
-		}
-	},
-	"textdomain": "capitainewp-blocks",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "capitainewp/introduction",
+  "version": "1.0",
+  "title": "Introduction",
+  "category": "capitainewp",
+  "icon": { "foreground": "#83bd71", "src": "editor-textcolor" },
+  "description": "Paragraphe d'introduction mis en exergue.",
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "attributes": {
+    "content": {
+      "type": "array",
+      "source": "children",
+      "selector": "p"
+    }
+  },
+  "textdomain": "capitainewp-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }

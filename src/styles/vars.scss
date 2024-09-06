@@ -4,20 +4,20 @@ $pad-m: 40px;
 $pad-l: 56px;
 $pad-xl: 80px;
 
-$color-1: #48ADD8;
-$color-2: #FF2952;
-$color-3: #83BD71;
-$color-4: #FFC334;
+$color-1: #48add8;
+$color-2: #ff2952;
+$color-3: #83bd71;
+$color-4: #ffc334;
 
 $color-1-hover: darken($color-1, 20%);
 $color-2-hover: darken($color-2, 20%);
 $color-3-hover: darken($color-3, 20%);
 $color-4-hover: darken($color-4, 20%);
 
-$color-advice: #83BD71;
-$color-avoid: #B54D4D;
-$color-warning: #FFC334;
-$color-info: #48ADD8;
+$color-advice: #83bd71;
+$color-avoid: #b54d4d;
+$color-warning: #ffc334;
+$color-info: #48add8;
 
 $color-neutral: #f8f8f8;
 $color-neutral-dark: #ddd;
@@ -25,12 +25,12 @@ $color-neutral-dark: #ddd;
 $text-color: #202020;
 $text-color-alt: #444;
 $text-color-light: #747680;
-$text-color-light-ondark: #BBBFCE;
+$text-color-light-ondark: #bbbfce;
 
 $content-margin: 2.5em;
 
-$title-font: 'Poppins', sans-serif;
-$font: 'Rubik', sans-serif;
+$title-font: "Poppins", sans-serif;
+$font: "Rubik", sans-serif;
 
 $radius: 4px;
-$transition-speed: .2s;
+$transition-speed: 0.2s;

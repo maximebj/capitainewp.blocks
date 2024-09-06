@@ -1,89 +1,84 @@
-import { useBlockProps } from '@wordpress/block-editor'
-import { useState, useEffect } from 'react'
+import { useBlockProps } from "@wordpress/block-editor"
+import { useState, useEffect } from "react"
 
-import Message from '../../components/message'
+import Message from "../../components/message"
 
-export default function Block( props ) {
+export default function Block(props) {
+  const { slug } = props.attributes
 
-	const { slug } = props.attributes
-
-	const [ plugin, setPlugin ] = useState( false );
+  const [plugin, setPlugin] = useState(false)
 
   const getPlugin = () => {
-
-		fetch( CapitaineWPBlocks.ajaxurl, {
-      method: 'POST',
+    fetch(CapitaineWPBlocks.ajaxurl, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+        "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
       },
-      body: 'action=capitainewp_get_plugin&slug=' + slug,
-      credentials: 'same-origin'
-    } )
-    .then( response => response.json() )
-    .then( response => setPlugin( response.data ) )
-	}
+      body: "action=capitainewp_get_plugin&slug=" + slug,
+      credentials: "same-origin",
+    })
+      .then((response) => response.json())
+      .then((response) => setPlugin(response.data))
+  }
 
-	useEffect( () => getPlugin(), [ slug ] )
+  useEffect(() => getPlugin(), [slug])
 
-	const blockProps = useBlockProps()
+  const blockProps = useBlockProps()
 
-	return (
-		plugin ? (
-			<div {...blockProps}>
+  return plugin ? (
+    <div {...blockProps}>
+      <div className="wp-block-capitainewp-plugin__content">
+        <a
+          href={plugin.downloadLink}
+          className="wp-block-capitainewp-plugin__picture"
+        >
+          <img src={plugin.icon} alt={plugin.name} />
+        </a>
 
-				<div className="wp-block-capitainewp-plugin__content">
-					<a href={ plugin.downloadLink } className="wp-block-capitainewp-plugin__picture">
-						<img src={ plugin.icon } alt={ plugin.name } />
-					</a>
+        <div className="wp-block-capitainewp-plugin__main">
+          <p className="wp-block-capitainewp-plugin__title">
+            <a href={plugin.downloadLink}>{plugin.name}</a>
+          </p>
+          <p className="wp-block-capitainewp-plugin__desc">
+            {plugin.description}
+          </p>
+          <p className="wp-block-capitainewp-plugin__author">
+            par{" "}
+            <a href={plugin.homepage} target="_blank">
+              {plugin.author}
+            </a>
+          </p>
+        </div>
+      </div>
 
-					<div className="wp-block-capitainewp-plugin__main">
-						<p className="wp-block-capitainewp-plugin__title">
-							<a href={ plugin.downloadLink }>{ plugin.name }</a>
-						</p>
-						<p className="wp-block-capitainewp-plugin__desc">{ plugin.description }</p>
-						<p className="wp-block-capitainewp-plugin__author">
-							par { ' ' }
-							<a href={ plugin.homepage } target='_blank'>
-								{ plugin.author }
-							</a>
-						</p>
-					</div>
-				</div>
-
-				<footer className="wp-block-capitainewp-plugin__footer">
-					<div className="wp-block-capitainewp-plugin__meta">
-						<p className="wp-block-capitainewp-plugin__rating">
-							<span
-								className="wp-block-capitainewp-plugin__stars"
-								dangerouslySetInnerHTML={ { __html: plugin.stars } }
-							/>
-							&nbsp;
-							<span className="wp-block-capitainewp-plugin__num-rating">
-								{ plugin.numRatings }
-							</span>
-						</p>
-						<p className="wp-block-capitainewp-plugin__active">
-							<span>{ plugin.activeInstalls }</span>
-							{ ' ' }
-							installations actives
-						</p>
-					</div>
-					<div className="wp-block-capitainewp-plugin__download">
-						<a
-							href={ plugin.downloadLink }
-							target="_blank"
-							className="wp-block-capitainewp-plugin__button">
-								Page officielle
-							</a>
-					</div>
-				</footer>
-
-			</div>
-		) : (
-			<Message
-				withSpinner='true'
-				label="Chargement de l'extension…"
-			/>
-		)
+      <footer className="wp-block-capitainewp-plugin__footer">
+        <div className="wp-block-capitainewp-plugin__meta">
+          <p className="wp-block-capitainewp-plugin__rating">
+            <span
+              className="wp-block-capitainewp-plugin__stars"
+              dangerouslySetInnerHTML={{ __html: plugin.stars }}
+            />
+            &nbsp;
+            <span className="wp-block-capitainewp-plugin__num-rating">
+              {plugin.numRatings}
+            </span>
+          </p>
+          <p className="wp-block-capitainewp-plugin__active">
+            <span>{plugin.activeInstalls}</span> installations actives
+          </p>
+        </div>
+        <div className="wp-block-capitainewp-plugin__download">
+          <a
+            href={plugin.downloadLink}
+            target="_blank"
+            className="wp-block-capitainewp-plugin__button"
+          >
+            Page officielle
+          </a>
+        </div>
+      </footer>
+    </div>
+  ) : (
+    <Message withSpinner="true" label="Chargement de l'extension…" />
   )
 }

@@ -1,20 +1,19 @@
 .wp-block-capitainewp-interview {
+  .wp-block-capitainewp-interview__title {
+    font-size: 21.6px;
+  }
 
-	.wp-block-capitainewp-interview__title {
-		font-size: 21.6px;
-	}
+  .wp-block-capitainewp-interview__title,
+  .wp-block-capitainewp-interview__work {
+    margin: 0;
+  }
 
-	.wp-block-capitainewp-interview__title,
-	.wp-block-capitainewp-interview__work {
-		margin: 0;
-	}
+  .wp-block-capitainewp-interview__desc p {
+    font-size: 16px;
+  }
 
-	.wp-block-capitainewp-interview__desc p {
-		font-size: 16px;
-	}
-
-	.wp-block-capitainewp-interview__meta,
-	.wp-block-capitainewp-interview__award {
-		font-family: 'Rubik', sans-serif;
-	}
+  .wp-block-capitainewp-interview__meta,
+  .wp-block-capitainewp-interview__award {
+    font-family: "Rubik", sans-serif;
+  }
 }

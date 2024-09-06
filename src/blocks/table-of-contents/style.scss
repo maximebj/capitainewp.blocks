@@ -1,75 +1,75 @@
 @import "../../styles/vars.scss";
 
 .wp-block-capitainewp-table-of-contents {
-	background: $color-neutral;
-	padding: $pad-s;
-	border-radius: $radius;
-	position: relative;
+  background: $color-neutral;
+  padding: $pad-s;
+  border-radius: $radius;
+  position: relative;
 
-	&.is-folded {
-		.wp-block-capitainewp-table-of-contents__fold svg {
-			transform: rotateZ(180deg);
-		}
+  &.is-folded {
+    .wp-block-capitainewp-table-of-contents__fold svg {
+      transform: rotateZ(180deg);
+    }
 
-		.wp-block-capitainewp-table-of-contents__list {
-			display: none;
-		}
-	}
+    .wp-block-capitainewp-table-of-contents__list {
+      display: none;
+    }
+  }
 }
 
 .wp-block-capitainewp-table-of-contents__title {
-	margin: 0;
+  margin: 0;
 }
 
 .wp-block-capitainewp-table-of-contents__fold {
-	position: absolute;
-	top: 18px;
-	right: 18px;
-	cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
 }
 
 .wp-block-capitainewp-table-of-contents__list {
-	margin: $pad-s 0 0 $pad-xs;
-	font-size: 0.8em;
+  margin: $pad-s 0 0 $pad-xs;
+  font-size: 0.8em;
 }
 
 .wp-block-capitainewp-table-of-contents__none {
-	opacity: 0.4;
-	font-style: italic;
+  opacity: 0.4;
+  font-style: italic;
 }
 
 // Magic trick to get some 1.1 1.2.1 ... in lists
 .wp-block-capitainewp-table-of-contents ol {
-	counter-reset: item;
+  counter-reset: item;
 }
 
 .wp-block-capitainewp-table-of-contents ol > li {
-	counter-increment: item;
+  counter-increment: item;
 }
 
 .wp-block-capitainewp-table-of-contents ol ol > li {
-	display: block;
+  display: block;
 }
 
 .wp-block-capitainewp-table-of-contents ol ol > li:before {
-	content: counters(item, ".") ". ";
-	margin-left: -20px;
+  content: counters(item, ".") ". ";
+  margin-left: -20px;
 }
 
 .wp-block-capitainewp-table-of-contents ul li,
 .wp-block-capitainewp-table-of-contents ol li {
-	margin-left: $pad-s;
+  margin-left: $pad-s;
 }
 
 .wp-block-capitainewp-table-of-contents li {
-	line-height: 1.8;
-	color: lighten($text-color-light, 10%);
+  line-height: 1.8;
+  color: lighten($text-color-light, 10%);
 }
 
 .wp-block-capitainewp-table-of-contents li a {
-	color: $text-color;
+  color: $text-color;
 }
 
 .wp-block-capitainewp-table-of-contents li a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }

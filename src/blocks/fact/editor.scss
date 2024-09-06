@@ -1,18 +1,17 @@
 .wp-block-capitainewp-fact {
+  .wp-block-capitainewp-fact__title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
 
-	.wp-block-capitainewp-fact__title {
-		margin-top: 0;
-		margin-bottom: 8px;
-		font-size: 16px;
-	}
+  p {
+    margin: 0;
+    font-size: 16.2px;
+    line-height: 1.4;
 
-	p {
-		margin: 0;
-		font-size: 16.2px;
-		line-height: 1.4;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }

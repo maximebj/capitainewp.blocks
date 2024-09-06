@@ -1,4 +1,4 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .wp-block-capitainewp-interview {
   position: relative;
@@ -99,7 +99,7 @@
 
 .wp-block-capitainewp-interview__title {
   text-align: center;
-	padding: 60px 0 0 0;
+  padding: 60px 0 0 0;
   color: $color-1;
   font-size: 1.2em;
 }

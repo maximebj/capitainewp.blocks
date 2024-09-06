@@ -1,17 +1,16 @@
 .wp-block-capitainewp-plugin {
+  .wp-block-capitainewp-plugin__rating,
+  .wp-block-capitainewp-plugin__active {
+    margin: 0;
+    font-size: 16.2px;
+  }
 
-	.wp-block-capitainewp-plugin__rating,
-	.wp-block-capitainewp-plugin__active {
-		margin: 0;
-		font-size: 16.2px;
-	}
+  a {
+    text-decoration: none;
+  }
 
-	a {
-		text-decoration: none;
-	}
-
-	a.wp-block-capitainewp-plugin__button {
-		color: white;
-		font-size: 16.2px;
-	}
+  a.wp-block-capitainewp-plugin__button {
+    color: white;
+    font-size: 16.2px;
+  }
 }

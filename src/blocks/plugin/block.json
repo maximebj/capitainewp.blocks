@@ -1,25 +1,25 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "capitainewp/plugin",
-	"version": "1.0",
-	"title": "Extension",
-	"category": "capitainewp",
-	"icon": { "foreground": "#83bd71", "src": "admin-plugins" },
-	"description": "Présentation d'une extension du répertoire de plugins WordPress.org.",
-	"keywords": ["extension", "plugin"],
-	"supports": {
-		"html": false,
-		"align": true
-	},
-	"attributes": {
-		"slug": {
-			"type": "string",
-			"default": false
-		}
-	},
-	"textdomain": "capitainewp-blocks",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "capitainewp/plugin",
+  "version": "1.0",
+  "title": "Extension",
+  "category": "capitainewp",
+  "icon": { "foreground": "#83bd71", "src": "admin-plugins" },
+  "description": "Présentation d'une extension du répertoire de plugins WordPress.org.",
+  "keywords": ["extension", "plugin"],
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "default": false
+    }
+  },
+  "textdomain": "capitainewp-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }
