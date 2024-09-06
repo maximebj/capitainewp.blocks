@@ -18,7 +18,7 @@ export default function Edit(props) {
   const { title, ordered, headings } = attributes
 
   // State to store the headings tree
-  const [headingsTree, setHeadingsTree] = useState([])
+  const [headingsTree, setHeadingsTree] = useState(headings)
 
   // Get all blocks from the editor
   const blocks = useSelect((select) => {
