@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "capitainewp/premium",
+  "version": "1.0",
+  "title": "Premium",
+  "category": "capitainewp",
+  "icon": { "foreground": "#83bd71", "src": "awards" },
+  "description": "Une partie du cours réservée aux acheteurs de la formation.",
+  "keywords": [],
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "textdomain": "capitainewp-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

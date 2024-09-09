@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Plugin Name:       Blocs Capitaine WP
- * Description:       Les blocs de Capitaine WP pour les cours et articles.
- * Requires at least: 5.9
- * Requires PHP:      7.0
- * Version:           1.0
+ * Description:       Les blocs de Capitaine WP pour les cours.
+ * Requires at least: 6.0
+ * Requires PHP:      8.0
+ * Version:           2.0
  * Author:            Maxime BJ • Capitaine WP
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +14,7 @@
  * @package           create-block
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 class CapitaineWPBlocks
 {
@@ -33,6 +34,7 @@ class CapitaineWPBlocks
 		require_once __DIR__ . '/classes/Blocks/Introduction.php';
 		require_once __DIR__ . '/classes/Blocks/Link.php';
 		require_once __DIR__ . '/classes/Blocks/Plugin.php';
+		require_once __DIR__ . '/classes/Blocks/Premium.php';
 		require_once __DIR__ . '/classes/Blocks/TableOfContents.php';
 
 		# Init Classes
@@ -48,6 +50,7 @@ class CapitaineWPBlocks
 		(new CapitaineWPBlocks\Blocks\Introduction)->registerHooks();
 		(new CapitaineWPBlocks\Blocks\Link)->registerHooks();
 		(new CapitaineWPBlocks\Blocks\Plugin)->registerHooks();
+		(new CapitaineWPBlocks\Blocks\Premium)->registerHooks();
 		(new CapitaineWPBlocks\Blocks\TableOfContents)->registerHooks();
 	}
 }
