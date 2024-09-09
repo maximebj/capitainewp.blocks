@@ -5,7 +5,7 @@
   "version": "1.0",
   "title": "Premium",
   "category": "capitainewp",
-  "icon": { "foreground": "#83bd71", "src": "awards" },
+  "icon": { "foreground": "#ff2952", "src": "awards" },
   "description": "Une partie du cours réservée aux acheteurs de la formation.",
   "keywords": [],
   "supports": {

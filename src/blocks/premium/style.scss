@@ -1,0 +1,42 @@
+@import "../../styles/vars.scss";
+
+.wp-block-capitainewp-premium {
+  position: relative;
+}
+
+.wp-block-capitainewp-premium__line::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 100;
+  left: -60px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 10px;
+  background-color: $color-2;
+}
+
+.wp-block-capitainewp-premium__line::after {
+  content: "Premium";
+  display: block;
+  position: absolute;
+  z-index: 100;
+  rotate: -90deg;
+  top: 20px;
+  left: -92px;
+  color: white;
+  background-color: $color-2;
+  padding: 4px 6px;
+  border-radius: $radius;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+[data-align="full"] .wp-block-capitainewp-premium__line::before {
+  left: 30px;
+}
+
+[data-align="full"] .wp-block-capitainewp-premium__line::after {
+  left: -1px;
+}

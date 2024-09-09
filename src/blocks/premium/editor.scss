@@ -1,3 +1,7 @@
-.wp-block-capitainewp-premium {
-  background: purple;
+[data-align="full"] .wp-block-capitainewp-premium__line::before {
+  left: 30px;
+}
+
+[data-align="full"] .wp-block-capitainewp-premium__line::after {
+  left: -1px;
 }
