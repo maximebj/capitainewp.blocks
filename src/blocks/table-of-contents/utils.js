@@ -5,15 +5,7 @@ export function getHeadingsFromContent(blocks) {
   const headings = []
   blocks.map((block) => {
     if (block.name === "core/heading" && block.attributes?.content.length > 0) {
-      headings.push({
-        clientId: block.clientId,
-        level: block.attributes.level,
-        content:
-          typeof block.attributes.content === "string"
-            ? block.attributes.content
-            : block.attributes.content.text,
-        slug: cleanForSlug(block.attributes.content),
-      })
+      headings.push(cleanBlock(block))
     }
 
     // Recursion in children blocks
@@ -64,4 +56,17 @@ export function buildHeadingHierarchy(headings) {
   })
 
   return hierarchy
+}
+
+// Clean the block to keep only useful data
+export function cleanBlock(block) {
+  return {
+    clientId: block.clientId,
+    level: block.attributes.level,
+    content:
+      typeof block.attributes.content === "string"
+        ? block.attributes.content
+        : block.attributes.content.text,
+    slug: cleanForSlug(block.attributes.content),
+  }
 }
