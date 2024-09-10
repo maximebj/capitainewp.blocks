@@ -11,7 +11,7 @@ export default function List(props) {
     <ListTag className={className}>
       {headings.map((heading) => (
         <li key={heading.slug}>
-          <a href={"#" + heading.link}>{heading.content}</a>
+          <a href={"#" + heading.slug}>{heading.content}</a>
           {heading.children && (
             <List headings={heading.children} ordered={ordered} />
           )}
