@@ -1,6 +1,6 @@
 import { useBlockProps, RichText } from "@wordpress/block-editor"
 import { useSelect, useDispatch } from "@wordpress/data"
-import { Fragment, useState, useEffect } from "@wordpress/element"
+import { Fragment, useEffect } from "@wordpress/element"
 
 import {
   getHeadingsFromContent,
@@ -17,9 +17,6 @@ export default function Edit(props) {
   const { attributes, setAttributes } = props
   const { title, ordered, headings } = attributes
 
-  // State to store the headings tree
-  const [headingsTree, setHeadingsTree] = useState(headings)
-
   // Get all blocks from the editor
   const blocks = useSelect((select) => {
     return select("core/block-editor").getBlocks()
@@ -34,19 +31,16 @@ export default function Edit(props) {
       return
     }
 
-    const newHeadingsTree = getHeadingsFromContent(blocks)
-    updateHeadingsAnchors(newHeadingsTree, updateBlockAttributes)
-    setHeadingsTree(buildHeadingHierarchy(newHeadingsTree))
-  }, [blocks, updateBlockAttributes])
+    // Extract the list of headings from the content and build the hierarchy
+    const newHeadingsList = getHeadingsFromContent(blocks)
+    const newHeadingTree = buildHeadingHierarchy(newHeadingsList)
 
-  // Only update attribute if the new headingsTree is different from the current one
-  useEffect(() => {
-    if (JSON.stringify(headingsTree) === JSON.stringify(headings)) {
-      return
+    // Only update state if the new headingsTree is different from the current one
+    if (JSON.stringify(newHeadingTree) !== JSON.stringify(headings)) {
+      updateHeadingsAnchors(newHeadingsList, updateBlockAttributes)
+      setAttributes({ headings: newHeadingTree })
     }
-
-    setAttributes({ headings: headingsTree })
-  }, [headingsTree])
+  }, [blocks, updateBlockAttributes])
 
   return (
     <Fragment>
@@ -76,14 +70,14 @@ export default function Edit(props) {
           </svg>
         </div>
 
-        {!headingsTree.length && (
+        {!headings.length && (
           <p className="wp-block-capitainewp-table-of-contents__none">
             Pas de titre pour le moment
           </p>
         )}
 
         <List
-          headings={headingsTree}
+          headings={headings}
           ordered={ordered}
           className="wp-block-capitainewp-table-of-contents__list"
         />
