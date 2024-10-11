@@ -75,6 +75,6 @@ class Premium
       'customClass' => empty($class) ? '' : ' ' . $class,
     ];
 
-    return Timber::compile('premium.twig', $data);
+    return Timber::compile('premium-content.twig', $data);
   }
 }
