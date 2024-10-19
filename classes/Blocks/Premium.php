@@ -55,19 +55,20 @@ class Premium
     // Get attributes
     $class = $attributes['className'] ?? '';
 
-    // Define product linke to the parent course of the lesson
+    // Define product link to the parent course of the lesson
     $lesson_id = get_the_ID();
     $course_id = get_field('course', $lesson_id);
-    $product_id = get_field('product', $course_id);
+    $product_ids = get_field('product', $course_id);
 
     // Display CTA if not purchased
-    if (!Helpers::has_purchased($product_id)) {
+    if (!Helpers::has_purchased($product_ids)) {
 
       $data = [
-        'pricingPage' => 0, // TODO: Define pricing page
+        'theme' => get_template_directory_uri(),
+        'plans_link' => get_field('elearning_link', $course_id),
       ];
 
-      return Timber::compile('premium-locked.twig', $data);
+      return Timber::compile('block-premium-locked.twig', $data);
     }
 
     $data = [
@@ -75,6 +76,6 @@ class Premium
       'customClass' => empty($class) ? '' : ' ' . $class,
     ];
 
-    return Timber::compile('premium-content.twig', $data);
+    return Timber::compile('block-premium-content.twig', $data);
   }
 }

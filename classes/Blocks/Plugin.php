@@ -5,27 +5,27 @@ namespace CapitaineWPBlocks\Blocks;
 use CapitaineWPBlocks\Constant;
 use Timber\Timber;
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 class Plugin
 {
 	public const SLUG = 'plugin';
 
 	/**
-   * Registrer Hooks
+	 * Registrer Hooks
 	 *
 	 * @return void
 	 */
 	public function registerHooks(): void
 	{
-		add_action( 'init', [ $this, 'registerBlock' ] );
-		add_action( 'wp_ajax_capitainewp_search_plugins', [ $this, 'searchPlugins' ] );
-    add_action( 'wp_ajax_capitainewp_get_plugin', [ $this, 'getPlugin' ] );
+		add_action('init', [$this, 'registerBlock']);
+		add_action('wp_ajax_capitainewp_search_plugins', [$this, 'searchPlugins']);
+		add_action('wp_ajax_capitainewp_get_plugin', [$this, 'getPlugin']);
 	}
 
 
 	/**
-   * Register Block
+	 * Register Block
 	 *
 	 * @return void
 	 */
@@ -34,106 +34,108 @@ class Plugin
 		register_block_type(
 			Constant::path() . "build/blocks/" . self::SLUG,
 			[
-				'render_callback' => [ $this, 'renderBlock' ]
+				'render_callback' => [$this, 'renderBlock']
 			]
 		);
 	}
 
 
 	/**
-   * Render Block in frontend
+	 * Render Block in frontend
 	 *
 	 * @param array $attributes
 	 *
 	 * @return string The rendered block in HTML
 	 */
-	public function renderBlock( $attributes ): string
+	public function renderBlock($attributes): string
 	{
-		require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+		require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
 
 		$slug = $attributes['slug'] ?? null;
 		$class = $attributes['className'] ?? '';
 
-		if( is_null( $slug ) ) { return '';}
+		if (is_null($slug)) {
+			return '';
+		}
 
 		$request = [
-      'slug' => $slug,
+			'slug' => $slug,
 			'fields' => $this->getApiFields()
 		];
 
 		# Get datas from API
-    $result = plugins_api( 'plugin_information', $request );
+		$result = plugins_api('plugin_information', $request);
 
 		# Prepare datas for template
-		$plugin = $this->prepareData( $result );
+		$plugin = $this->prepareData($result);
 
 		$data = [
 			'plugin' => $plugin,
-			'customClass' => empty( $class ) ? '' : ' ' . $class,
+			'customClass' => empty($class) ? '' : ' ' . $class,
 		];
 
-		return Timber::compile( 'plugin.twig', $data );
+		return Timber::compile('block-plugin.twig', $data);
 	}
 
 
 	/**
-   * Search a plugin via Plugins API
+	 * Search a plugin via Plugins API
 	 * Context: Ajax
 	 *
 	 * @return void
 	 */
-  public function searchPlugins(): void
+	public function searchPlugins(): void
 	{
-		require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+		require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
 
-    $request = [
-      'per_page' => 20,
-      'search' => $_POST['search'],
-      'fields' => $this->getApiFields()
+		$request = [
+			'per_page' => 20,
+			'search' => $_POST['search'],
+			'fields' => $this->getApiFields()
 		];
 
-    $results = plugins_api( 'query_plugins', $request );
+		$results = plugins_api('query_plugins', $request);
 		$data = [];
 		$plugins = [];
 
-    foreach( $results->plugins as $plugin ) {
-			$plugins[] = $this->prepareData( $plugin );
+		foreach ($results->plugins as $plugin) {
+			$plugins[] = $this->prepareData($plugin);
 		}
 
 		$data['info'] = $results->info;
 		$data['plugins'] = $plugins;
 
-		wp_send_json_success( $data );
-  }
+		wp_send_json_success($data);
+	}
 
 
 	/**
-   * Get plugin data for Preview component via Plugins API
+	 * Get plugin data for Preview component via Plugins API
 	 * Context: Ajax
 	 *
 	 * @return void
 	 */
 	public function getPlugin(): void
 	{
-		require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+		require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
 
 		$request = [
-      'slug' => $_POST['slug'],
+			'slug' => $_POST['slug'],
 			'fields' => $this->getApiFields()
 		];
 
 		# Get datas from API
-    $result = plugins_api( 'plugin_information', $request );
+		$result = plugins_api('plugin_information', $request);
 
 		# Prepare datas for template
-		$plugin = $this->prepareData( $result );
+		$plugin = $this->prepareData($result);
 
-		wp_send_json_success( $plugin );
+		wp_send_json_success($plugin);
 	}
 
 
 	/**
-   * Additional fields to get via plugins API
+	 * Additional fields to get via plugins API
 	 *
 	 * @return void
 	 */
@@ -150,29 +152,31 @@ class Plugin
 
 
 	/**
-   * Search a plugin via Plugins API
+	 * Search a plugin via Plugins API
 	 * Context: Ajax
 	 *
 	 * @param object|array $data
 	 *
 	 * @return array
 	 */
-	protected function prepareData( $data ): array
+	protected function prepareData($data): array
 	{
 		# Force object
-		if( is_array( $data ) ) { $data = (object) $data; }
+		if (is_array($data)) {
+			$data = (object) $data;
+		}
 
 		return [
 			'slug' => $data->slug,
-			'name' => html_entity_decode( $data->name ),
-			'description' => html_entity_decode( $data->short_description ),
-			'icon' => $this->defineImage( $data->icons ),
-			'stars' => $this->setStars( $data->rating ),
-			'activeInstalls' => $this->formatInstalls( $data->active_installs ),
+			'name' => html_entity_decode($data->name),
+			'description' => html_entity_decode($data->short_description),
+			'icon' => $this->defineImage($data->icons),
+			'stars' => $this->setStars($data->rating),
+			'activeInstalls' => $this->formatInstalls($data->active_installs),
 			'downloadLink' => "https://wordpress.org/plugins/" . $data->slug,
 			'rating' => $data->rating,
 			'numRatings' => $data->num_ratings,
-			'author' => strip_tags( $data->author ),
+			'author' => strip_tags($data->author),
 			'homepage' => $data->homepage,
 			'numRatings' => $data->num_ratings,
 		];
@@ -180,17 +184,17 @@ class Plugin
 
 
 	/**
-   * Define plugin icon size
+	 * Define plugin icon size
 	 *
 	 * @param array $icons The icons available
 	 *
 	 * @return sring
 	 */
-	protected function defineImage( array $icons ): string
+	protected function defineImage(array $icons): string
 	{
-		if ( array_key_exists( '2x', $icons ) ) {
+		if (array_key_exists('2x', $icons)) {
 			return $icons['2x'];
-		} else if( array_key_exists( '1x', $icons ) ) {
+		} else if (array_key_exists('1x', $icons)) {
 			return $icons['1x'];
 		} else {
 			return $icons['default'];
@@ -199,18 +203,17 @@ class Plugin
 
 
 	/**
-   * Format number of installs
+	 * Format number of installs
 	 *
 	 * @param int $installs number of active installs
 	 *
 	 * @return string
 	 */
-	protected function formatInstalls( int $installs ): string
+	protected function formatInstalls(int $installs): string
 	{
-		if ( $installs >= 1000000 ) {
+		if ($installs >= 1000000) {
 			return '1+ Million';
-		}
-		else if( $installs < 10 ) {
+		} else if ($installs < 10) {
 			return 'Moins de 10';
 		}
 
@@ -219,50 +222,50 @@ class Plugin
 
 
 	/**
-   * Generate stars
+	 * Generate stars
 	 *
 	 * @param string $rating the plugin rating
 	 *
 	 * @return string The 1 to 5 stars
 	 */
-	protected function setStars( string $rating ): string
+	protected function setStars(string $rating): string
 	{
-		$rating = intval( $rating ) / 20;
-    $floor = floor( $rating );
+		$rating = intval($rating) / 20;
+		$floor = floor($rating);
 
-    $max = 5;
-    $last = 0;
+		$max = 5;
+		$last = 0;
 
-    $stars = '';
+		$stars = '';
 
-    for( $i=0; $i < $floor; $i++ ) {
-      $stars.= $this->getStarSVG( 'filled' );
-      $last++;
-    }
+		for ($i = 0; $i < $floor; $i++) {
+			$stars .= $this->getStarSVG('filled');
+			$last++;
+		}
 
-    if( $floor != $rating ) {
-      $stars.= $this->getStarSVG( 'half' );
-      $last++;
-    }
+		if ($floor != $rating) {
+			$stars .= $this->getStarSVG('half');
+			$last++;
+		}
 
-    for ( $i = $last; $i < $max; $i++ ) {
-      $stars.= $this->getStarSVG( 'empty' );
-    }
+		for ($i = $last; $i < $max; $i++) {
+			$stars .= $this->getStarSVG('empty');
+		}
 
 		return $stars;
 	}
 
 
 	/**
-   * Generate stars in SVG
+	 * Generate stars in SVG
 	 *
 	 * @param string $type The type: filled, half or empty
 	 *
 	 * @return string the star svg
 	 */
-	protected function getStarSVG( string $type ): string
+	protected function getStarSVG(string $type): string
 	{
-		if( $type == "filled" ) {
+		if ($type == "filled") {
 			return "
 				<svg width='18px' height='18px'>
 			 		<g fill='#F5BC41'>
@@ -270,8 +273,7 @@ class Plugin
 			  	</g>
 				</svg>
 			";
-
-		} else if( $type == "half" ) {
+		} else if ($type == "half") {
 			return "
 				<svg width='18px' height='18px'>
 					<g fill='#F5BC41'>
