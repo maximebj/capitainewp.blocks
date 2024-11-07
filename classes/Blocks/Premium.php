@@ -53,7 +53,7 @@ class Premium
     }
 
     // Get attributes
-    $class = $attributes['className'] ?? '';
+    $align = isset($attributes['align']) ? ' align' . $attributes['align'] : '';
 
     // Define product link to the parent course of the lesson
     $lesson_id = get_the_ID();
@@ -73,7 +73,7 @@ class Premium
 
     $data = [
       'content' => $content,
-      'customClass' => empty($class) ? '' : ' ' . $class,
+      'align' => $align,
     ];
 
     return Timber::compile('block-premium-content.twig', $data);
