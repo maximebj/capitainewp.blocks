@@ -11,6 +11,10 @@ class Plugin
 {
 	public const SLUG = 'plugin';
 
+	# Cache duration of wordpress.org API results
+	protected const CACHE_DURATION = 12 * HOUR_IN_SECONDS;
+	protected const CACHE_ERROR_DURATION = HOUR_IN_SECONDS;
+
 	/**
 	 * Registrer Hooks
 	 *
@@ -49,22 +53,20 @@ class Plugin
 	 */
 	public function renderBlock($attributes): string
 	{
-		require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
-
 		$slug = $attributes['slug'] ?? null;
 		$class = $attributes['className'] ?? '';
 
-		if (is_null($slug)) {
+		if (empty($slug)) {
 			return '';
 		}
 
-		$request = [
-			'slug' => $slug,
-			'fields' => $this->getApiFields()
-		];
+		# Get datas from API (cached)
+		$result = $this->fetchPlugin($slug);
 
-		# Get datas from API
-		$result = plugins_api('plugin_information', $request);
+		# Plugin not found (removed from wordpress.org) or API unreachable
+		if (is_null($result)) {
+			return '<!-- capitainewp/plugin: "' . esc_html($slug) . '" not found -->';
+		}
 
 		# Prepare datas for template
 		$plugin = $this->prepareData($result);
@@ -95,6 +97,11 @@ class Plugin
 		];
 
 		$results = plugins_api('query_plugins', $request);
+
+		if (is_wp_error($results) || !isset($results->plugins)) {
+			wp_send_json_error();
+		}
+
 		$data = [];
 		$plugins = [];
 
@@ -117,20 +124,58 @@ class Plugin
 	 */
 	public function getPlugin(): void
 	{
-		require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
+		$slug = sanitize_key($_POST['slug'] ?? '');
 
-		$request = [
-			'slug' => $_POST['slug'],
-			'fields' => $this->getApiFields()
-		];
+		# Get datas from API (cached)
+		$result = $this->fetchPlugin($slug);
 
-		# Get datas from API
-		$result = plugins_api('plugin_information', $request);
+		if (is_null($result)) {
+			wp_send_json_error();
+		}
 
 		# Prepare datas for template
 		$plugin = $this->prepareData($result);
 
 		wp_send_json_success($plugin);
+	}
+
+
+	/**
+	 * Get plugin information via Plugins API, cached in a transient
+	 *
+	 * @param string $slug The plugin slug on wordpress.org
+	 *
+	 * @return object|null The plugin data, or null if not found / API error
+	 */
+	protected function fetchPlugin(string $slug): ?object
+	{
+		if (empty($slug)) {
+			return null;
+		}
+
+		$key = 'capitainewp_plugin_' . md5($slug);
+		$cached = get_transient($key);
+
+		if ($cached !== false) {
+			return is_object($cached) ? $cached : null;
+		}
+
+		require_once(ABSPATH . 'wp-admin/includes/plugin-install.php');
+
+		$result = plugins_api('plugin_information', [
+			'slug' => $slug,
+			'fields' => $this->getApiFields()
+		]);
+
+		# Cache failures too (shorter), to avoid calling the API on every render
+		if (is_wp_error($result) || !is_object($result) || empty($result->slug)) {
+			set_transient($key, 'error', self::CACHE_ERROR_DURATION);
+			return null;
+		}
+
+		set_transient($key, $result, self::CACHE_DURATION);
+
+		return $result;
 	}
 
 
@@ -166,19 +211,20 @@ class Plugin
 			$data = (object) $data;
 		}
 
+		$slug = $data->slug ?? '';
+
 		return [
-			'slug' => $data->slug,
-			'name' => html_entity_decode($data->name),
-			'description' => html_entity_decode($data->short_description),
-			'icon' => $this->defineImage($data->icons),
-			'stars' => $this->setStars($data->rating),
-			'activeInstalls' => $this->formatInstalls($data->active_installs),
-			'downloadLink' => "https://wordpress.org/plugins/" . $data->slug,
-			'rating' => $data->rating,
-			'numRatings' => $data->num_ratings,
-			'author' => strip_tags($data->author),
-			'homepage' => $data->homepage,
-			'numRatings' => $data->num_ratings,
+			'slug' => $slug,
+			'name' => html_entity_decode($data->name ?? $slug),
+			'description' => html_entity_decode($data->short_description ?? ''),
+			'icon' => $this->defineImage((array) ($data->icons ?? [])),
+			'stars' => $this->setStars((string) ($data->rating ?? 0)),
+			'activeInstalls' => $this->formatInstalls((int) ($data->active_installs ?? 0)),
+			'downloadLink' => "https://wordpress.org/plugins/" . $slug,
+			'rating' => $data->rating ?? 0,
+			'numRatings' => $data->num_ratings ?? 0,
+			'author' => strip_tags($data->author ?? ''),
+			'homepage' => $data->homepage ?? '',
 		];
 	}
 
@@ -186,19 +232,13 @@ class Plugin
 	/**
 	 * Define plugin icon size
 	 *
-	 * @param array $icons The icons available
+	 * @param array|null $icons The icons available
 	 *
-	 * @return sring
+	 * @return string
 	 */
-	protected function defineImage(array $icons): string
+	protected function defineImage(?array $icons): string
 	{
-		if (array_key_exists('2x', $icons)) {
-			return $icons['2x'];
-		} else if (array_key_exists('1x', $icons)) {
-			return $icons['1x'];
-		} else {
-			return $icons['default'];
-		}
+		return $icons['2x'] ?? $icons['1x'] ?? $icons['default'] ?? '';
 	}
 
 
